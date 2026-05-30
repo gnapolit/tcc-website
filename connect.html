@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Costiera Collective</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B3057;
+      --copper: #C4785A;
+      --cream:  #E8DCC8;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--navy);
+      font-family: 'Calibri', 'Arial', sans-serif;
+      color: var(--cream);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-toggle button {
+      background: none;
+      border: 1px solid rgba(232,220,200,0.25);
+      border-radius: 2px;
+      color: rgba(232,220,200,0.45);
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle button.active {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    .wordmark {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 48px;
+      opacity: 0.7;
+    }
+
+    .accent-line {
+      width: 40px;
+      height: 2px;
+      background: var(--copper);
+      margin: 0 auto 40px;
+    }
+
+    h1 {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-weight: 400;
+      font-size: clamp(28px, 6vw, 44px);
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--cream);
+      opacity: 0.7;
+      max-width: 380px;
+      margin-bottom: 48px;
+    }
+
+    form {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    input[type="email"],
+    input[type="text"] {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(232,220,200,0.25);
+      border-radius: 2px;
+      color: var(--cream);
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="email"]:focus,
+    input[type="text"]:focus {
+      border-color: var(--copper);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 16px 20px;
+      background: var(--copper);
+      border: none;
+      border-radius: 2px;
+      color: var(--cream);
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    button[type="submit"]:hover { opacity: 0.88; }
+
+    .skip {
+      margin-top: 20px;
+      font-size: 12px;
+      color: rgba(232,220,200,0.4);
+    }
+
+    .skip a {
+      color: rgba(232,220,200,0.4);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .skip a:hover { color: var(--copper); }
+
+    .footer-note {
+      margin-top: 64px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: rgba(232,220,200,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lang-toggle">
+    <button onclick="setLang('it')" class="active" id="btn-it">IT</button>
+    <button onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+
+  <div class="page">
+
+    <p class="wordmark">The Costiera Collective</p>
+    <div class="accent-line"></div>
+
+    <h1 id="headline">Iniziamo da qui.</h1>
+    <p class="subtitle" id="subtitle">Lascia la tua email e ti contatteremo — che tu sia un brand, un creator, o semplicemente curioso di quello che stiamo costruendo nel Sud Italia.</p>
+
+    <form
+      name="vulcanic-leads"
+      action="/connect"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      id="lead-form"
+    >
+      <input type="hidden" name="form-name" value="vulcanic-leads" />
+      <input type="hidden" name="bot-field" style="display:none" />
+      <input type="hidden" name="source" value="VulcanicAIS 2026" />
+
+      <input
+        type="text"
+        name="name"
+        id="input-name"
+        placeholder="Il tuo nome"
+        autocomplete="name"
+      />
+      <input
+        type="email"
+        name="email"
+        id="input-email"
+        placeholder="Il tuo indirizzo email"
+        required
+        autocomplete="email"
+      />
+      <button type="submit" id="btn-submit">Entra nel Collective</button>
+    </form>
+
+    <p class="skip">
+      <a href="https://www.thecostieracollective.com" id="skip-link">Salta — portami al sito</a>
+    </p>
+
+    <p class="footer-note" id="footer-note">L'agenzia creator del Sud Italia — Napoli e oltre</p>
+
+  </div>
+
+  <script>
+    const copy = {
+      it: {
+        headline:    "Iniziamo da qui.",
+        subtitle:    "Lascia la tua email e ti contatteremo — che tu sia un brand, un creator, o semplicemente curioso di quello che stiamo costruendo nel Sud Italia.",
+        namePh:      "Il tuo nome",
+        emailPh:     "Il tuo indirizzo email",
+        submit:      "Entra nel Collective",
+        skip:        "Salta — portami al sito",
+        footer:      "L'agenzia creator del Sud Italia — Napoli e oltre"
+      },
+      en: {
+        headline:    "Stay in the story.",
+        subtitle:    "Leave your email and we'll be in touch — whether you're a brand, a creator, or just curious about what we're building in Southern Italy.",
+        namePh:      "Your name",
+        emailPh:     "Your email address",
+        submit:      "Enter the Collective",
+        skip:        "Skip — take me to the site",
+        footer:      "Southern Italy's creator agency — Naples & beyond"
+      }
+    };
+
+    function setLang(lang) {
+      const t = copy[lang];
+      document.getElementById('headline').textContent    = t.headline;
+      document.getElementById('subtitle').textContent    = t.subtitle;
+      document.getElementById('input-name').placeholder  = t.namePh;
+      document.getElementById('input-email').placeholder = t.emailPh;
+      document.getElementById('btn-submit').textContent  = t.submit;
+      document.getElementById('skip-link').textContent   = t.skip;
+      document.getElementById('footer-note').textContent = t.footer;
+      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+    }
+
+    // Default to Italian
+    setLang('it');
+
+    // Netlify form submit + redirect
+    document.getElementById('lead-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(this);
+      fetch('/connect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      })
+      .finally(() => {
+        window.location.href = 'https://www.thecostieracollective.com';
+      });
+    });
+  </script>
+
+</body>
+</html>

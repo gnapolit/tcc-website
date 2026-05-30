@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Costiera Collective — Creator Agency, Southern Italy</title>
+  <meta name="description" content="Creator agency rooted in Southern Italy. We represent expat creators and Italian-hyphenates — and connect them with the brands worth building for." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.thecostieracollective.com" />
+
+  <!-- Hreflang for bilingual EN/IT -->
+  <link rel="alternate" hreflang="en" href="https://www.thecostieracollective.com" />
+  <link rel="alternate" hreflang="it" href="https://www.thecostieracollective.com" />
+  <link rel="alternate" hreflang="x-default" href="https://www.thecostieracollective.com" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-17JGXY6B27"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-17JGXY6B27');
+  </script>
+
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:title" content="The Costiera Collective" />
+  <meta property="og:description" content="Rooted in Southern Italy. Creating for the world. Curated talent management and brand partnerships." />
+  <meta property="og:url" content="https://www.thecostieracollective.com" />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:     #1B3057;
+      --navyAlt:  #243D6B;
+      --copper:   #C4785A;
+      --cream:    #E8DCC8;
+      --beige:    #B0A898;
+      --light:    #F5F3EF;
+      --white:    #FFFFFF;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Calibri', 'Arial', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-weight: 400;
+    }
+
+    header {
+      background: var(--navy);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+
+    .header-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .wordmark {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .wordmark-the {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 5px;
+      margin-bottom: 4px;
+    }
+    .wordmark-main {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 4px;
+      line-height: 1.25;
+    }
+    .wordmark-rule {
+      width: 32px;
+      height: 1.5px;
+      background: var(--copper);
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: var(--beige);
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: color 0.2s, background 0.2s;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    nav button:hover { color: var(--white); }
+    nav button.active { color: var(--white); }
+    nav button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 14px;
+      right: 14px;
+      height: 2px;
+      background: var(--copper);
+      border-radius: 1px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      margin-left: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--beige);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lang-toggle button.active { background: var(--copper); color: var(--white); }
+    .lang-toggle button:hover:not(.active) { color: var(--white); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .hero-band {
+      background: var(--navy);
+      padding: 72px 32px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-band::before {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      right: -100px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: var(--navyAlt);
+    }
+
+    .hero-band::after {
+      content: '';
+      position: absolute;
+      top: -70px;
+      left: -50px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--copper);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 42px;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 2px;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .hero-rule {
+      width: 56px;
+      height: 2px;
+      background: var(--copper);
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--cream);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .content-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+
+    .section-label {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--copper);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .section-rule {
+      width: 40px;
+      height: 1.5px;
+      background: var(--copper);
+      margin-bottom: 24px;
+    }
+
+    .section-body {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .section-body + .section-body { margin-top: 16px; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .card {
+      background: var(--light);
+      border-top: 3px solid var(--copper);
+      padding: 32px 28px;
+    }
+
+    .card-icon { font-size: 22px; margin-bottom: 16px; }
+
+    .card-title {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-body { font-size: 14px; color: #555; line-height: 1.7; }
+
+    .divider { border: none; border-top: 1px solid var(--cream); margin: 0 32px; }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .pillar { border-left: 2px solid var(--copper); padding-left: 24px; }
+
+    .pillar-title {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 19px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .pillar-body { font-size: 14px; color: #555; line-height: 1.75; }
+
+    .stats-bar { background: var(--navy); padding: 40px 32px; }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 36px;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--beige);
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    #map-container { display: flex; justify-content: center; padding: 40px 0 20px; }
+    #italy-map { max-width: 460px; width: 100%; }
+    .region-default { fill: #E8E4DE; stroke: #fff; stroke-width: 0.8; }
+    .region-highlight { fill: var(--copper); stroke: #fff; stroke-width: 0.8; opacity: 0.85; }
+    .region-highlight:hover { opacity: 1; cursor: default; }
+
+    .map-legend {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--copper); opacity: 0.85; flex-shrink: 0; }
+
+    .tier-stack { display: flex; flex-direction: column; gap: 24px; margin-top: 48px; }
+
+    .tier {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      align-items: start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--cream);
+    }
+
+    .tier:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .tier-label-wrap {
+      text-align: right;
+      padding-right: 32px;
+      border-right: 2px solid var(--copper);
+    }
+
+    .tier-eyebrow {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--beige);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .tier-name {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 22px;
+      color: var(--navy);
+    }
+
+    .tier-body { font-size: 14px; color: #555; line-height: 1.75; }
+
+    .tier-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+    .tier-tag {
+      background: var(--light);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    .coming-soon { text-align: center; padding: 100px 32px; }
+    .coming-soon-icon { font-size: 48px; margin-bottom: 28px; opacity: 0.5; }
+    .coming-soon h2 { font-size: 32px; color: var(--navy); margin-bottom: 16px; letter-spacing: 1px; }
+    .coming-soon p { font-size: 15px; color: #666; line-height: 1.7; max-width: 480px; margin: 0 auto; }
+    .coming-soon .rule { width: 40px; height: 1.5px; background: var(--copper); margin: 20px auto; }
+
+    /* Six-card membership grid */
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .membership-card {
+      background: var(--light);
+      border-left: 3px solid var(--copper);
+      padding: 28px 24px;
+    }
+
+    .membership-title {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .membership-body { font-size: 14px; color: #555; line-height: 1.7; }
+
+    .community-cta {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px;
+      font-family: 'Calibri', 'Arial', sans-serif;
+      letter-spacing: 0.08em;
+      color: var(--copper);
+      text-decoration: none;
+    }
+    .community-cta:hover { opacity: 0.75; }
+
+    /* Founder / Roots */
+    .founder-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 64px;
+      align-items: start;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+
+    .founder-photo-block { position: sticky; top: 96px; }
+
+    .founder-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: var(--navyAlt);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+
+    .founder-photo-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--beige);
+      text-transform: uppercase;
+      margin-top: 16px;
+    }
+
+    .founder-name {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 22px;
+      color: var(--navy);
+      margin-top: 4px;
+    }
+
+    .founder-rule { width: 32px; height: 1.5px; background: var(--copper); margin-top: 10px; }
+
+    .founder-body p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .founder-body p:last-child { margin-bottom: 0; }
+
+    .founder-social {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--cream);
+      font-size: 14px;
+      color: var(--beige);
+      letter-spacing: 1px;
+    }
+
+    .founder-social a {
+      color: var(--copper);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .founder-social a:hover { text-decoration: underline; }
+
+    /* Contact */
+    .contact-layout { max-width: 700px; margin: 0 auto; padding: 80px 32px; }
+
+    .contact-channels { display: flex; flex-direction: column; margin-top: 48px; }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      align-items: center;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--cream);
+    }
+
+    .contact-item:first-child { border-top: 1px solid var(--cream); }
+
+    .contact-channel-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--beige);
+      text-transform: uppercase;
+    }
+
+    .contact-link {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 22px;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--copper); }
+
+    .contact-inquiry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .inquiry-card { background: var(--light); border-top: 2px solid var(--copper); padding: 24px 20px; }
+
+    .inquiry-title {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .inquiry-body { font-size: 13px; color: #666; line-height: 1.6; }
+
+    /* Footer */
+    footer { background: var(--navy); padding: 44px 32px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 20px;
+    }
+
+    .footer-link {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--beige);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover { color: var(--white); }
+    .footer-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--copper); }
+
+    .footer-wordmark {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .footer-rule { width: 36px; height: 1.5px; background: var(--copper); margin: 16px auto; }
+
+    @media (max-width: 900px) {
+      .founder-layout { grid-template-columns: 1fr; }
+      .founder-photo-block { position: static; max-width: 280px; }
+      .founder-photo-placeholder { aspect-ratio: 1 / 1; }
+      .membership-grid { grid-template-columns: 1fr; }
+      .contact-inquiry-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 16px; height: 62px; }
+      nav button { font-size: 9.5px; padding: 6px 9px; letter-spacing: 1.5px; }
+      nav button.active::after { left: 9px; right: 9px; }
+      .hero-title { font-size: 28px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .tier { grid-template-columns: 1fr; }
+      .tier-label-wrap { text-align: left; border-right: none; border-left: 2px solid var(--copper); padding-right: 0; padding-left: 16px; }
+      .contact-item { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 16px 16px 0;
+        align-items: center;
+      }
+      .wordmark { flex: 1; }
+      .lang-toggle { margin-left: auto; }
+      nav {
+        order: 3;
+        flex: 0 0 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0;
+        margin-top: 4px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      nav::-webkit-scrollbar { display: none; }
+      nav button { font-size: 9px; padding: 9px 12px; letter-spacing: 1px; flex-shrink: 0; }
+      nav button.active::after { left: 12px; right: 12px; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+      .hero-band { padding: 48px 20px 40px; }
+      .content-section { padding: 40px 20px; }
+    }
+  </style>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Costiera Collective",
+    "url": "https://www.thecostieracollective.com",
+    "description": "Creator agency rooted in Southern Italy. Talent management and brand partnerships for expat creators and Italian-hyphenates.",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Naples, Italy"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Southern Italy"
+    },
+    "sameAs": [
+      "https://www.instagram.com/thecostieracollective"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "ciao@thecostieracollective.com",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="wordmark" onclick="showTab('about')">
+      <span class="wordmark-the">THE</span>
+      <span class="wordmark-main">COSTIERA<br>COLLECTIVE</span>
+      <div class="wordmark-rule"></div>
+    </div>
+
+    <nav id="main-nav">
+      <button class="active" onclick="showTab('about')"    data-en="About"      data-it="Chi Siamo">About</button>
+      <button onclick="showTab('community')"               data-en="Community"   data-it="Community">Community</button>
+      <button onclick="showTab('talent')"                  data-en="Talent"      data-it="Talent">Talent</button>
+      <button onclick="showTab('brands')"                  data-en="Brands"      data-it="Brand">Brands</button>
+      <button onclick="showTab('roots')"                   data-en="Roots"       data-it="Radici">Roots</button>
+      <button onclick="showTab('contact')"                 data-en="Contact"     data-it="Contatti">Contact</button>
+    </nav>
+
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('it')">IT</button>
+    </div>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════
+     ABOUT
+══════════════════════════════════ -->
+<div id="tab-about" class="tab-panel active">
+
+  <div class="hero-band">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-en="Rooted in Southern Italy. Creating for the world." data-it="Radicati nel Sud Italia. Creiamo per il mondo.">Rooted in Southern Italy. Creating for the world.</p>
+      <h1 class="hero-title" data-en="Southern Italy's authentic voices, for brands that deserve them." data-it="Le voci autentiche del Sud Italia, ai brand che lo meritano.">Southern Italy's authentic voices, for brands that deserve them.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-en="We represent the people who tell Southern Italy's story to international audiences — and connect them with the brands that are genuinely part of that story. Curated talent management and brand partnerships, rooted in the place we call home." data-it="Rappresentiamo le persone che raccontano la storia del Sud Italia al pubblico internazionale, e le mettiamo in contatto con i brand che fanno davvero parte di quella storia. Talent management e brand partnership curati, radicati nel luogo che chiamiamo casa.">We represent the people who tell Southern Italy's story to international audiences — and connect them with the brands that are genuinely part of that story. Curated talent management and brand partnerships, rooted in the place we call home.</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <p class="section-label" data-en="Our Mission" data-it="La Nostra Missione">Our Mission</p>
+    <h2 class="section-title" data-en="Why we exist" data-it="Perché siamo qui">Why we exist</h2>
+    <div class="section-rule"></div>
+    <p class="section-body" data-en="Southern Italy is one of the most storied regions on earth — and one of the most underrepresented in global brand conversations. The creators who live here are not influencers passing through. They are expat creators who built a life here, Italian-hyphenates who grew up between two cultures, community builders who have gathered people around a place and a passion, and artists, photographers, and journalists who have made Southern Italy their subject and their home. Their content is not a backdrop. It is the story." data-it="Il Sud Italia è una delle regioni più ricche di storia al mondo, eppure una delle più sottorappresentate nelle conversazioni globali sui brand. I creator che ci vivono non sono influencer di passaggio. Sono expat che hanno costruito una vita qui, italo-ibridi (di origini italiane, cresciuti tra due culture), community builder che hanno riunito persone attorno a un luogo e a una passione, e artisti, fotografi e giornalisti che hanno fatto del Sud Italia il loro soggetto e la loro casa. Il loro contenuto non è uno sfondo. È la storia.">Southern Italy is one of the most storied regions on earth — and one of the most underrepresented in global brand conversations. The creators who live here are not influencers passing through. They are expat creators who built a life here, Italian-hyphenates who grew up between two cultures, community builders who have gathered people around a place and a passion, and artists, photographers, and journalists who have made Southern Italy their subject and their home. Their content is not a backdrop. It is the story.</p>
+    <p class="section-body" data-en="The Costiera Collective exists to give those creators the infrastructure, strategy, and brand relationships they deserve — and to give brands a credible, curated path into this place. Not a fly-by. Not a backdrop shoot. A genuine presence, built on long-term partnerships and the belief that Southern Italy's culture is something to be integrated into, not extracted from." data-it="The Costiera Collective esiste per dare a quei creator l'infrastruttura, la strategia e le relazioni con i brand che meritano — e per offrire ai brand un percorso credibile e curato verso questo luogo. Non un passaggio fugace. Non un semplice servizio fotografico. Una presenza genuina, costruita su partnership a lungo termine e sulla convinzione che la cultura del Sud Italia sia qualcosa in cui integrarsi, non da cui estrarre.">The Costiera Collective exists to give those creators the infrastructure, strategy, and brand relationships they deserve — and to give brands a credible, curated path into this place. Not a fly-by. Not a backdrop shoot. A genuine presence, built on long-term partnerships and the belief that Southern Italy's culture is something to be integrated into, not extracted from.</p>
+
+    <div class="pillar-grid">
+      <div class="pillar">
+        <h3 class="pillar-title" data-en="Talent Management" data-it="Talent Management">Talent Management</h3>
+        <p class="pillar-body" data-en="We work closely with a curated roster of creators across food, travel, lifestyle, culture, and the arts — providing strategy, contract negotiation, brand matching, and long-term career guidance." data-it="Lavoriamo a stretto contatto con un roster curato di creator nei settori food, travel, lifestyle, cultura e arti, offrendo strategia, negoziazione contrattuale, matching con i brand e orientamento professionale a lungo termine.">We work closely with a curated roster of creators across food, travel, lifestyle, culture, and the arts — providing strategy, contract negotiation, brand matching, and long-term career guidance.</p>
+      </div>
+      <div class="pillar">
+        <h3 class="pillar-title" data-en="Brand Partnerships" data-it="Collaborazioni con i Brand">Brand Partnerships</h3>
+        <p class="pillar-body" data-en="From local artisan producers to international luxury houses, we connect brands with the right creative voices and design campaigns that feel native to Southern Italy's culture — not transposed onto it." data-it="Dai produttori artigianali locali alle grandi maison internazionali, mettiamo in contatto i brand con le giuste voci creative e progettiamo collaborazioni senza alterare l'essenza.">From local artisan producers to international luxury houses, we connect brands with the right creative voices and design campaigns that feel native to Southern Italy's culture — not transposed onto it.</p>
+      </div>
+      <div class="pillar">
+        <h3 class="pillar-title" data-en="Branded Experiences" data-it="Esperienze Brandizzate">Branded Experiences</h3>
+        <p class="pillar-body" data-en="We design and produce immersive events, press trips, and cultural activations that generate content, community, and commercial value in equal measure." data-it="Progettiamo e produciamo eventi immersivi, press trip e attivazioni culturali che generano in egual misura contenuto, community e valore commerciale.">We design and produce immersive events, press trips, and cultural activations that generate content, community, and commercial value in equal measure.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="content-section">
+    <p class="section-label" data-en="What Makes Us Different" data-it="Cosa Ci Rende Diversi">What Makes Us Different</p>
+    <h2 class="section-title" data-en="Born here. Built here." data-it="Nati qui. Costruiti qui.">Born here. Built here.</h2>
+    <div class="section-rule"></div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">◎</div>
+        <h3 class="card-title" data-en="Lived-in expertise" data-it="Esperienza vissuta">Lived-in expertise</h3>
+        <p class="card-body" data-en="We are not a northern agency with a southern outpost. We live, work, and create in Southern Italy. That proximity is our competitive advantage. It is not something you can learn from the outside." data-it="Non siamo un'agenzia del nord con una sede nel sud. Viviamo, lavoriamo e creiamo nel Sud Italia. Quella vicinanza è il nostro vantaggio competitivo — e nessun sopralluogo può replicarla.">We are not a northern agency with a southern outpost. We live, work, and create in Southern Italy. That proximity is our competitive advantage — and it is something no amount of research trips can replicate.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">◈</div>
+        <h3 class="card-title" data-en="Authentic storytelling" data-it="Narrazione autentica">Authentic storytelling</h3>
+        <p class="card-body" data-en="The people we work with have built international audiences around the honest texture of everyday Southern Italian life — the food, the language, the slow rhythms, the contradictions. That is not manufactured. It is earned." data-it="Le persone con cui lavoriamo hanno costruito un pubblico internazionale attorno all'autenticità della vita quotidiana nel Sud Italia: il cibo, la lingua, i ritmi lenti, le contraddizioni. Non è costruito. È guadagnato.">The people we work with have built international audiences around the honest texture of everyday Southern Italian life — the food, the language, the slow rhythms, the contradictions. That is not manufactured. It is earned.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">◇</div>
+        <h3 class="card-title" data-en="Curated by design" data-it="Una scelta deliberata">Curated by design</h3>
+        <p class="card-body" data-en="Southern Italy is not a niche — it is a deliberate focus. We are here to champion the creators who bring this region to international audiences, and to build the partnerships that give their work the value it deserves." data-it="Il Sud Italia non è una nicchia — è una scelta deliberata. Siamo qui per valorizzare i creator che portano questa regione al pubblico internazionale, e per costruire le partnership che danno al loro lavoro il valore che merita.">Southern Italy is not a niche — it is a deliberate focus. We are here to champion the creators who bring this region to international audiences, and to build the partnerships that give their work the value it deserves.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-about -->
+
+
+<!-- ══════════════════════════════════
+     COMMUNITY
+══════════════════════════════════ -->
+<div id="tab-community" class="tab-panel">
+
+  <div class="hero-band">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-en="Our Community" data-it="La Nostra Community">Our Community</p>
+      <h1 class="hero-title" data-en="Expat creators, Italian-hyphenates, community builders, and creatives." data-it="Creator expat, italo-ibridi, community builder e creativi.">Expat creators, Italian-hyphenates, community builders, and creatives.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-en="The Costiera Collective Community is where it starts. A community for creators who have built lives in Southern Italy, not just content from it. Free to join for creators who are genuinely rooted here: people who have learned the dialect, navigated the bureaucracy, found their neighborhood, and built a real international following that trusts them for exactly that reason." data-it="La Costiera Collective Community è dove tutto inizia. Una community per creator che hanno costruito una vita nel Sud Italia, non solo contenuti. Gratuita per i creator davvero radicati qui: persone che hanno imparato il dialetto, navigato la burocrazia, trovato il loro quartiere e costruito una community internazionale reale che si fida di loro proprio per questo.">The Costiera Collective Community is where it starts. A community for creators who have built lives in Southern Italy, not just content from it. Free to join for creators who are genuinely rooted here: people who have learned the dialect, navigated the bureaucracy, found their neighborhood, and built a real international following that trusts them for exactly that reason.</p>
+      <a href="https://www.facebook.com/groups/costieracreatorcollective" target="_blank" rel="noopener" class="community-cta" data-en="Apply to join the private community →" data-it="Candidati per entrare nella community privata →">Apply to join the private community →</a>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-block">
+        <div class="stat-num">20+</div>
+        <div class="stat-label" data-en="Members" data-it="Membri">Members</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">2M+</div>
+        <div class="stat-label" data-en="Collective Reach" data-it="Portata Collettiva">Collective Reach</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">6</div>
+        <div class="stat-label" data-en="Regions" data-it="Regioni">Regions</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" style="padding-top: 48px; padding-bottom: 24px;">
+    <p class="section-label" data-en="Where We Are" data-it="Dove Siamo">Where We Are</p>
+    <h2 class="section-title" data-en="Lives Built Here" data-it="Vite Costruite Qui">Lives Built Here</h2>
+    <div class="section-rule"></div>
+    <p class="section-body" data-en="Our community spans Campania, Puglia, Abruzzo, Calabria, Sicilia, and Sardegna — six of Italy's most distinct and richly creative regions. Each has its own character, its own food culture, its own pace. The people who represent them to global audiences are not tourists. They are residents who have earned that right." data-it="La nostra community abbraccia Campania, Puglia, Abruzzo, Calabria, Sicilia e Sardegna — sei delle regioni italiane più distinte e ricche di creatività. Ognuna ha il suo carattere, la sua cultura culinaria, il suo ritmo. Le persone che le rappresentano al pubblico globale non sono turisti. Sono residenti che hanno guadagnato quel diritto.">Our community spans Campania, Puglia, Abruzzo, Calabria, Sicilia, and Sardegna — six of Italy's most distinct and richly creative regions. Each has its own character, its own food culture, its own pace. The people who represent them to global audiences are not tourists. They are residents who have earned that right.</p>
+  </div>
+
+  <div id="map-container">
+    <svg id="italy-map" viewBox="0 0 460 560"></svg>
+  </div>
+
+  <div class="map-legend">
+    <div class="legend-dot"></div>
+    <span data-en="Active regions" data-it="Regioni attive">Active regions</span>
+  </div>
+
+  <div class="content-section" style="padding-top: 48px;">
+    <div class="card-grid">
+      <div class="card">
+        <h3 class="card-title">Campania</h3>
+        <p class="card-body" data-en="Home base. Naples, the Amalfi Coast, Sorrento, and the Cilento. The heartland of the collective and where our story begins — a region where history, food, and chaos combine in a way that creates content that genuinely travels." data-it="La nostra base. Napoli, la Costiera Amalfitana, Sorrento e il Cilento. Il cuore del collettivo e dove inizia la nostra storia — una regione in cui storia, cibo e caos si fondono in un modo che crea contenuti con risonanza internazionale.">Home base. Naples, the Amalfi Coast, Sorrento, and the Cilento. The heartland of the collective and where our story begins — a region where history, food, and chaos combine in a way that creates content that genuinely travels.</p>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Puglia &amp; Abruzzo</h3>
+        <p class="card-body" data-en="Two regions building international audiences fast. Puglia's trulli, Salento, and baroque streetscapes; Abruzzo's wild mountains, Adriatic coast, and villages unchanged for centuries. Different in character, united by the kind of depth that rewards creators who stay." data-it="Due regioni con un'audience internazionale in rapida crescita. I trulli e le strade barocche della Puglia; le montagne selvagge, la costa adriatica e i borghi immutati da secoli dell'Abruzzo. Diversi nel carattere, uniti dalla profondità che premia chi resta.">Two regions building international audiences fast. Puglia's trulli, Salento, and baroque streetscapes; Abruzzo's wild mountains, Adriatic coast, and villages unchanged for centuries. Different in character, united by the kind of depth that rewards creators who stay.</p>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Calabria &amp; Sicilia</h3>
+        <p class="card-body" data-en="Separated by a few kilometers of water and connected by centuries of shared culture. The deep south — ancient Greek ruins, volcanic landscapes, and food traditions that predate the nation. Creators here are telling the version of Italy most of the world hasn't found yet." data-it="Separate da pochi chilometri d'acqua e unite da secoli di cultura condivisa. Il profondo sud — rovine greche antiche, paesaggi vulcanici e tradizioni culinarie che precedono la nazione. I creator qui raccontano la versione dell'Italia che il mondo non ha ancora scoperto.">Separated by a few kilometers of water and connected by centuries of shared culture. The deep south — ancient Greek ruins, volcanic landscapes, and food traditions that predate the nation. Creators here are telling the version of Italy most of the world hasn't found yet.</p>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Sardegna</h3>
+        <p class="card-body" data-en="An island with its own language, its own coastline, and a pace of life that has no equivalent on the mainland. Sardegna draws a global audience seeking untouched beauty — and the creators based here have earned the trust to show it properly." data-it="Un'isola con la propria lingua, la propria costa e un ritmo di vita senza eguali sul continente. La Sardegna attrae un pubblico globale in cerca di bellezza intatta — e i creator qui hanno guadagnato la fiducia per mostrarla come si deve.">An island with its own language, its own coastline, and a pace of life that has no equivalent on the mainland. Sardegna draws a global audience seeking untouched beauty — and the creators based here have earned the trust to show it properly.</p>
+      </div>
+    </div>
+  </div>
+
+
+</div><!-- /tab-community -->
+
+
+<!-- ══════════════════════════════════
+     TALENT
+══════════════════════════════════ -->
+<div id="tab-talent" class="tab-panel">
+
+  <div class="hero-band">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-en="Talent Management" data-it="Talent Management">Talent Management</p>
+      <h1 class="hero-title" data-en="The people who make<br>Southern Italy worth watching." data-it="Le persone che raccontano<br>il Sud Italia al mondo.">The people who make<br>Southern Italy worth watching.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-en="We are building our official talent roster — a carefully curated group of creators, community builders, artists, and family creators we represent end-to-end. Every person we take on has genuine roots here. They are not flying in for content. They are living the story they tell." data-it="Stiamo costruendo il nostro roster ufficiale di talent — un gruppo curato di creator, community builder, artisti e family creator che rappresentiamo in tutto e per tutto. Ogni persona che accettiamo ha radici genuine qui. Non arrivano per creare contenuti. Vivono la storia che raccontano.">We are building our official talent roster — a carefully curated group of creators, community builders, and artists we represent end-to-end. Every person we take on has genuine roots here. They are not flying in for content. They are living the story they tell.</p>
+    </div>
+  </div>
+
+  <div class="coming-soon">
+    <div class="coming-soon-icon">◇</div>
+    <h2 data-en="Roster — Coming Soon" data-it="Roster — In Arrivo">Roster — Coming Soon</h2>
+    <div class="rule"></div>
+    <p data-en="Our official talent page launches later this year. In the meantime, get in touch if you are based in Southern Italy and want to explore what representation looks like." data-it="La nostra pagina ufficiale dei talent viene lanciata entro la fine dell'anno. Nel frattempo, contattaci se sei nel Sud Italia e vuoi esplorare cosa significa essere rappresentati.">Our official talent page launches later this year. In the meantime, get in touch if you are based in Southern Italy and want to explore what representation looks like.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="content-section">
+    <p class="section-label" data-en="For Creators" data-it="Per i Creator">For Creators</p>
+    <h2 class="section-title" data-en="What TCC representation provides." data-it="Cosa offre la rappresentanza TCC.">What TCC representation provides.</h2>
+    <div class="section-rule"></div>
+
+    <div class="membership-grid">
+      <div class="membership-card">
+        <h3 class="membership-title" data-en="Professional Representation" data-it="Rappresentanza Professionale">Professional Representation</h3>
+        <p class="membership-body" data-en="Rate card development, brand negotiation, contract structuring. The infrastructure most self-managed creators never build." data-it="Sviluppo del rate card, negoziazione con i brand, strutturazione dei contratti. L'infrastruttura che la maggior parte dei creator autogestiti non costruisce mai.">Rate card development, brand negotiation, contract structuring. The infrastructure most self-managed creators never build.</p>
+      </div>
+      <div class="membership-card">
+        <h3 class="membership-title" data-en="Campaign Analysis" data-it="Analisi delle Campagne">Campaign Analysis</h3>
+        <p class="membership-body" data-en="Every deal includes a performance report. Brands see ROI. Renewals become the default, not the exception." data-it="Ogni accordo include un report di performance. I brand vedono il ROI. I rinnovi diventano la norma, non l'eccezione.">Every deal includes a performance report. Brands see ROI. Renewals become the default, not the exception.</p>
+      </div>
+      <div class="membership-card">
+        <h3 class="membership-title" data-en="Brand Access" data-it="Accesso ai Brand">Brand Access</h3>
+        <p class="membership-body" data-en="Direct introductions to brands that individual creators cannot access alone. Collective leverage opens doors." data-it="Introduzioni dirette a brand che i creator individuali non possono raggiungere da soli. La leva collettiva apre le porte.">Direct introductions to brands that individual creators cannot access alone. Collective leverage opens doors.</p>
+      </div>
+      <div class="membership-card">
+        <h3 class="membership-title" data-en="Peer Community" data-it="Community tra Pari">Peer Community</h3>
+        <p class="membership-body" data-en="A real network of creators building something together in the same region — not competing with each other." data-it="Una rete reale di creator che costruiscono qualcosa insieme nella stessa regione, senza competere tra loro.">A real network of creators building something together in the same region — not competing with each other.</p>
+      </div>
+      <div class="membership-card">
+        <h3 class="membership-title" data-en="Positioning Support" data-it="Supporto al Posizionamento">Positioning Support</h3>
+        <p class="membership-body" data-en="Content strategy aligned to TCC's brand standards and responsible marketing framework." data-it="Strategia di contenuto allineata agli standard del brand TCC e al framework di marketing responsabile.">Content strategy aligned to TCC's brand standards and responsible marketing framework.</p>
+      </div>
+      <div class="membership-card">
+        <h3 class="membership-title" data-en="Ethical Framework" data-it="Framework Etico">Ethical Framework</h3>
+        <p class="membership-body" data-en="A defensible position when brands push for content that conflicts with your values or the collective's mission." data-it="Una posizione difendibile quando i brand spingono per contenuti che entrano in conflitto con i tuoi valori o con la missione del collettivo.">A defensible position when brands push for content that conflicts with your values or the collective's mission.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-talent -->
+
+
+<!-- ══════════════════════════════════
+     BRANDS
+══════════════════════════════════ -->
+<div id="tab-brands" class="tab-panel">
+
+  <div class="hero-band">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-en="Brand Partnerships" data-it="Collaborazioni con i Brand">Brand Partnerships</p>
+      <h1 class="hero-title" data-en="Partnerships that earn their<br>place in the conversation." data-it="Collaborazioni che<br>lasciano il segno.">Partnerships that earn their<br>place in the conversation.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-en="We do not parachute brands into Southern Italy. We integrate them into it — through creators who live here year-round, events built around real cultural moments, and partnerships designed to last beyond a single content cycle. If you are looking for a fly-by, we are not the right agency. If you are ready to build something real, we are." data-it="Non lanciamo i brand nel Sud Italia. Li integriamo, attraverso creator che ci vivono tutto l'anno, eventi costruiti attorno a momenti culturali reali e partnership progettate per durare oltre un singolo ciclo di contenuti. Se cerchi un passaggio fugace, non siamo l'agenzia giusta. Se sei pronto a costruire qualcosa di reale, lo siamo.">We do not parachute brands into Southern Italy. We integrate them into it — through creators who live here year-round, events built around real cultural moments, and partnerships designed to last beyond a single content cycle. If you are looking for a fly-by, we are not the right agency. If you are ready to build something real, we are.</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <p class="section-label" data-en="How We Work With Brands" data-it="Come Lavoriamo con i Brand">How We Work With Brands</p>
+    <h2 class="section-title" data-en="Three tiers, one standard." data-it="Tre livelli, un unico standard.">Three tiers, one standard.</h2>
+    <div class="section-rule"></div>
+    <p class="section-body" data-en="Every brand we work with — regardless of size or budget — gets the same standard of care, creative thinking, and honest matchmaking. We do not take briefs we do not believe in, and we do not match brands with creators who are not genuinely the right fit." data-it="Ogni brand con cui lavoriamo, indipendentemente dalle dimensioni o dal budget, riceve lo stesso livello di attenzione, pensiero creativo e selezione mirata dei creator. Non accettiamo brief in cui non crediamo, e non abbiniamo brand con creator che non sono davvero la scelta giusta.">Every brand we work with — regardless of size or budget — gets the same standard of care, creative thinking, and honest matchmaking. We do not take briefs we do not believe in, and we do not match brands with creators who are not genuinely the right fit.</p>
+
+    <div class="tier-stack">
+
+      <div class="tier">
+        <div class="tier-label-wrap">
+          <div class="tier-eyebrow" data-en="Tier 01" data-it="Livello 01">Tier 01</div>
+          <div class="tier-name" data-en="Local" data-it="Locale">Local</div>
+        </div>
+        <div>
+          <p class="tier-body" data-en="For Southern Italy-rooted businesses — artisan producers, independent restaurants, family estates, boutique hotels, and local experiences — looking to reach audiences who are here or coming here. We connect you with creators who genuinely love what you make, produce activations that feel native to the culture, and deliver content that outlasts the campaign." data-it="Per le aziende radicate nel Sud Italia — produttori artigianali, ristoranti indipendenti, tenute di famiglia, hotel boutique ed esperienze locali — che vogliono raggiungere un pubblico che è qui o sta arrivando. Vi mettiamo in contatto con creator che amano davvero ciò che fate, produciamo attività che sembrano native della cultura e consegniamo contenuti che durano oltre la campagna.">For Southern Italy-rooted businesses — artisan producers, independent restaurants, family estates, boutique hotels, and local experiences — looking to reach audiences who are here or coming here. We connect you with creators who genuinely love what you make, produce activations that feel native to the culture, and deliver content that outlasts the campaign.</p>
+          <div class="tier-tags">
+            <span class="tier-tag" data-en="Content Creation" data-it="Creazione Contenuti">Content Creation</span>
+            <span class="tier-tag" data-en="Seeding" data-it="Product Seeding">Seeding</span>
+            <span class="tier-tag" data-en="Event Activations" data-it="Attivazioni Evento">Event Activations</span>
+            <span class="tier-tag" data-en="Coverage" data-it="Copertura">Coverage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-label-wrap">
+          <div class="tier-eyebrow" data-en="Tier 02" data-it="Livello 02">Tier 02</div>
+          <div class="tier-name" data-en="Domestic" data-it="Nazionale">Domestic</div>
+        </div>
+        <div>
+          <p class="tier-body" data-en="For Italian brands using Southern Italy as a cultural platform to reach national or international audiences. From food and beverage to fashion, lifestyle, and tourism — we bring the creator relationships, the regional expertise, and the on-the-ground execution that turns a brief into something that actually lands here." data-it="Per i brand italiani che usano il Sud Italia come piattaforma culturale per raggiungere un pubblico nazionale o internazionale. Dal food e beverage alla moda, lifestyle e turismo — portiamo le relazioni con i creator, l'expertise regionale e l'esecuzione sul campo che trasforma un brief in qualcosa che funziona davvero qui.">For Italian brands using Southern Italy as a cultural platform to reach national or international audiences. From food and beverage to fashion, lifestyle, and tourism — we bring the creator relationships, the regional expertise, and the on-the-ground execution that turns a brief into something that actually lands here.</p>
+          <div class="tier-tags">
+            <span class="tier-tag" data-en="Campaign Management" data-it="Gestione Campagna">Campaign Management</span>
+            <span class="tier-tag" data-en="Multi-Creator" data-it="Multi-Creator">Multi-Creator</span>
+            <span class="tier-tag" data-en="Event Activations" data-it="Attivazioni Evento">Event Activations</span>
+            <span class="tier-tag" data-en="Press Trips" data-it="Press Trip">Press Trips</span>
+            <span class="tier-tag" data-en="Reporting" data-it="Reportistica">Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-label-wrap">
+          <div class="tier-eyebrow" data-en="Tier 03" data-it="Livello 03">Tier 03</div>
+          <div class="tier-name" data-en="International" data-it="Internazionale">International</div>
+        </div>
+        <div>
+          <p class="tier-body" data-en="For global brands seeking genuine cultural access to one of the world's most sought-after regions. We operate as a full 360 partner — from creative concept and creator casting through to event production, press trips, campaign management, and performance measurement. Not a backdrop shoot. A real presence." data-it="Per i brand globali che cercano un accesso culturale genuino a una delle regioni più ambite al mondo. Operiamo come partner completo — dal concept creativo e il casting dei creator fino alla produzione di eventi, press trip, gestione delle campagne e analisi delle performance. Non una sessione fotografica di sfondo. Una presenza reale.">For global brands seeking genuine cultural access to one of the world's most sought-after regions. We operate as a full 360 partner — from creative concept and creator casting through to event production, press trips, campaign management, and performance measurement. Not a backdrop shoot. A real presence.</p>
+          <div class="tier-tags">
+            <span class="tier-tag" data-en="Strategic Direction" data-it="Direzione Strategica">Strategic Direction</span>
+            <span class="tier-tag" data-en="Multi-Creator" data-it="Multi-Creator">Multi-Creator</span>
+            <span class="tier-tag" data-en="Campaign Management" data-it="Gestione Campagna">Campaign Management</span>
+            <span class="tier-tag" data-en="Brand Experiences" data-it="Esperienze Brand">Brand Experiences</span>
+            <span class="tier-tag" data-en="Branded Trips" data-it="Viaggi Brandizzati">Branded Trips</span>
+            <span class="tier-tag" data-en="Full Analysis" data-it="Analisi Completa">Full Measurement</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="content-section">
+    <p class="section-label" data-en="Branded Experiences" data-it="Esperienze Brandizzate">Branded Experiences</p>
+    <h2 class="section-title" data-en="Where content meets place." data-it="Dove il contenuto incontra il luogo.">Where content meets place.</h2>
+    <div class="section-rule"></div>
+    <p class="section-body" data-en="Beyond traditional influencer campaigns, we design and produce branded events and immersive experiences that generate content, community, and commercial value simultaneously. We handle everything — venue scouting, creator briefing, logistics, on-the-ground production, and post-event reporting." data-it="Oltre alle tradizionali campagne influencer, progettiamo e produciamo eventi brandizzati ed esperienze immersive che generano contemporaneamente contenuto, community e valore commerciale. Gestiamo tutto: ricerca della location, briefing dei creator, logistica, produzione sul campo e reporting post-evento.">Beyond traditional influencer campaigns, we design and produce branded events and immersive experiences that generate content, community, and commercial value simultaneously. We handle everything — venue scouting, creator briefing, logistics, on-the-ground production, and post-event reporting.</p>
+
+    <div class="card-grid" style="margin-top: 40px;">
+      <div class="card">
+        <h3 class="card-title" data-en="Branded Events" data-it="Eventi Brandizzati">Branded Events</h3>
+        <p class="card-body" data-en="From wine tastings to artisan market activations, we create events that feel genuinely local, look beautiful, and generate content that outlasts the evening." data-it="Dalle degustazioni di vino alle attivazioni nei mercati artigianali, creiamo eventi che sembrano autenticamente locali, appaiono bellissimi e generano contenuti che durano oltre la serata.">From wine tastings to artisan market activations, we create events that feel genuinely local, look beautiful, and generate content that outlasts the evening.</p>
+      </div>
+      <div class="card">
+        <h3 class="card-title" data-en="Press &amp; Creator Trips" data-it="Press &amp; Creator Trip">Press &amp; Creator Trips</h3>
+        <p class="card-body" data-en="We design immersive multi-day itineraries that give international creators and press real access to Southern Italy — not a highlight reel, but the actual place — and give your brand the story it has been waiting for." data-it="Progettiamo itinerari immersivi di più giorni che danno ai creator e alla stampa internazionale un accesso reale al Sud Italia, non un racconto di facciata ma il luogo autentico, e danno al tuo brand la storia che stava aspettando.">We design immersive multi-day itineraries that give international creators and press real access to Southern Italy — not a highlight reel, but the actual place — and give your brand the story it has been waiting for.</p>
+      </div>
+      <div class="card">
+        <h3 class="card-title" data-en="Cultural Activations" data-it="Attivazioni Culturali">Cultural Activations</h3>
+        <p class="card-body" data-en="Partner with us on events that sit at the intersection of food, wine, art, and storytelling — events your brand can be genuinely proud to have supported, not just to have sponsored." data-it="Collabora con noi su eventi che si trovano all'intersezione di cibo, vino, arte e narrazione, eventi di cui il tuo brand può essere genuinamente orgoglioso di aver supportato, non solo sponsorizzato.">Partner with us on events that sit at the intersection of food, wine, art, and storytelling — events your brand can be genuinely proud to have supported, not just to have sponsored.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-brands -->
+
+
+<!-- ══════════════════════════════════
+     ROOTS
+══════════════════════════════════ -->
+<div id="tab-roots" class="tab-panel">
+
+  <div class="hero-band">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-en="Roots" data-it="Radici">Roots</p>
+      <h1 class="hero-title" data-en="Built by someone<br>who lives this story." data-it="Costruita da qualcuno<br>che vive questa storia.">Built by someone<br>who lives this story.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-en="The Costiera Collective exists because its founder came home. First-generation Neapolitan-American, she spent years watching the gap between what this region deserves and what it gets from the brand world. She decided to close it." data-it="The Costiera Collective esiste perché la sua fondatrice è tornata a casa. Italoamericana di prima generazione, ha trascorso anni a osservare il divario tra ciò che questa regione merita e ciò che riceve dal mondo dei brand. Ha deciso di colmarlo.">The Costiera Collective exists because its founder came home. First-generation Neapolitan-American, she spent years watching the gap between what this region deserves and what it gets from the brand world. She decided to close it.</p>
+    </div>
+  </div>
+
+  <div class="founder-layout">
+    <div class="founder-photo-block">
+      <div class="founder-photo-placeholder">
+        <img src="founder_photo.jpg" alt="Giuliana Napolitano, Founder of The Costiera Collective" />
+      </div>
+      <p class="founder-photo-label" data-en="Founder" data-it="Fondatrice">Founder</p>
+      <p class="founder-name">Giuliana Napolitano</p>
+      <div class="founder-rule"></div>
+    </div>
+
+    <div class="founder-body">
+      <p data-en="Giuliana Napolitano has spent the first decade of her career on the agency side of the creator economy — first at Buzzoole, the Naples-founded influencer platform where she built her understanding of the Italian creator landscape from the inside, then at starpower, where she rose to Director of Influencer Marketing and Analytics. Her function is translating numbers into narratives: building the KPI frameworks and performance reporting that tell brands whether their investment actually worked, and using that evidence to uncover opportunities and optimizations. She works on the agency side with some of the world's largest consumer brands, delivering the numbers that determine what gets renewed and what does not." data-it="Giuliana Napolitano ha trascorso il primo decennio della sua carriera sul lato agenzia della creator economy — prima a Buzzoole, la piattaforma di influencer marketing fondata a Napoli dove ha costruito la sua comprensione del panorama creator italiano dall'interno, poi a starpower, dove è diventata Direttrice di Influencer Marketing e Analytics. La sua funzione è tradurre i numeri in narrazioni: costruire i framework KPI e i report di performance che dicono ai brand se il loro investimento ha funzionato davvero, e usare quelle evidenze per individuare opportunità e ottimizzazioni. Lavora sul lato agenzia con alcuni dei più grandi consumer brand al mondo, consegnando i numeri che determinano cosa viene rinnovato e cosa no.">Giuliana Napolitano has spent the first decade of her career on the agency side of the creator economy — first at Buzzoole, the Naples-founded influencer platform where she built her understanding of the Italian creator landscape from the inside, then at starpower, where she rose to Director of Influencer Marketing and Analytics. Her function is translating numbers into narratives: building the KPI frameworks and performance reporting that tell brands whether their investment actually worked, and using that evidence to uncover opportunities and optimizations. She sits across the table from the world's largest consumer brands and delivers the numbers that determine what gets renewed and what does not.</p>
+
+      <p data-en="She also knows Southern Italy in a way that cannot be learned from a brief — because it is hers. Italian-American, with Neapolitan roots on both sides, Giuliana grew up between two cultures but always knew where she belonged. She has lived in Naples for over six years, building a life in the city her family is from: the dialect, the neighborhood, the bureaucracy, and the community of creators who have made it their base. Some of them chose this place. For her, it was never really a choice." data-it="Conosce anche il Sud Italia in un modo che non si può imparare da un brief — perché le appartiene. Italo-americana, con radici napoletane da entrambe le parti, Giuliana è cresciuta tra due culture ma ha sempre saputo dove apparteneva. Vive a Napoli da oltre sei anni, costruendo una vita nella città da cui viene la sua famiglia: il dialetto, il quartiere, la burocrazia e la comunità di creator che ne hanno fatto la loro base. Alcuni di loro hanno scelto questo posto. Per lei, non è mai stata davvero una scelta.">She also knows Southern Italy in a way that cannot be learned from a brief — because it is hers. Italian-American, with Neapolitan roots on both sides, Giuliana grew up between two cultures but always knew where she belonged. She has lived in Naples for over six years, building a life in the city her family is from: the dialect, the neighborhood, the bureaucracy, and the community of creators who have made it their base. Some of them chose this place. For her, it was never really a choice.</p>
+
+      <p data-en="The Costiera Collective is the collision of those two things. The infrastructure and industry knowledge to represent creators properly, combined with the genuine belonging that makes the work worth doing. It was built because the talent was always here. The representation was not." data-it="The Costiera Collective è la sintesi di queste due cose. L'infrastruttura e la conoscenza del settore per rappresentare i creator come si deve, combinate con l'appartenenza genuina che rende il lavoro degno di essere fatto. È stata costruita perché il talento è sempre stato qui. La rappresentanza no.">The Costiera Collective is the collision of those two things. The infrastructure and industry knowledge to represent creators properly, combined with the genuine belonging that makes the work worth doing. It was built because the talent was always here. The representation was not.</p>
+
+      <div class="founder-social">
+        <span data-en="Follow the story: " data-it="Segui la storia: ">Follow the story: </span><a href="https://instagram.com/giulianainnaples" target="_blank" rel="noopener">@giulianainnaples</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-roots -->
+
+
+<!-- ══════════════════════════════════
+     CONTACT
+══════════════════════════════════ -->
+<div id="tab-contact" class="tab-panel">
+
+  <div class="hero-band">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-en="Get in Touch" data-it="Contattaci">Get in Touch</p>
+      <h1 class="hero-title" data-en="We would love<br>to hear from you." data-it="Ci farebbe piacere<br>sentirti.">We would love<br>to hear from you.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-en="Whether you are a creator looking to explore representation, a brand ready to build something real in Southern Italy, or a journalist working on a story — the door is open." data-it="Che tu sia un creator che vuole esplorare la rappresentanza, un brand pronto a costruire qualcosa di reale nel Sud Italia, o un giornalista che lavora a un articolo: la porta è aperta.">Whether you are a creator looking to explore representation, a brand ready to build something real in Southern Italy, or a journalist working on a story — the door is open.</p>
+    </div>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-channels">
+      <div class="contact-item">
+        <span class="contact-channel-label" data-en="Email" data-it="Email">Email</span>
+        <a class="contact-link" href="mailto:ciao@thecostieracollective.com">ciao@thecostieracollective.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-channel-label" data-en="Instagram" data-it="Instagram">Instagram</span>
+        <a class="contact-link" href="https://instagram.com/thecostieracollective" target="_blank" rel="noopener">@thecostieracollective</a>
+      </div>
+    </div>
+
+    <div class="contact-inquiry-grid">
+      <div class="inquiry-card">
+        <h3 class="inquiry-title" data-en="Creators" data-it="Creator">Creators</h3>
+        <p class="inquiry-body" data-en="Based in Southern Italy and curious about representation? Tell us a little about yourself and what you are building." data-it="Sei nel Sud Italia e sei curioso/a riguardo alla rappresentanza? Dicci qualcosa di te e di quello che stai costruendo.">Based in Southern Italy and curious about representation? Tell us a little about yourself and what you are building.</p>
+      </div>
+      <div class="inquiry-card">
+        <h3 class="inquiry-title" data-en="Brands" data-it="Brand">Brands</h3>
+        <p class="inquiry-body" data-en="Ready to build a partnership rooted in Southern Italy's culture? Share your brief and let us explore what is possible." data-it="Pronto a costruire una partnership radicata nella cultura del Sud Italia? Condividi il tuo brief e esploriamo insieme le possibilità.">Ready to build a partnership rooted in Southern Italy's culture? Share your brief and let us explore what is possible.</p>
+      </div>
+      <div class="inquiry-card">
+        <h3 class="inquiry-title" data-en="Press &amp; Media" data-it="Stampa &amp; Media">Press &amp; Media</h3>
+        <p class="inquiry-body" data-en="Working on a story about the creator economy, Southern Italy, or the intersection of the two? We are happy to talk." data-it="Stai lavorando a un articolo sulla creator economy, il Sud Italia o l'intersezione tra i due? Siamo felici di parlarne.">Working on a story about the creator economy, Southern Italy, or the intersection of the two? We are happy to talk.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-contact -->
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a class="footer-link" href="mailto:ciao@thecostieracollective.com">ciao@thecostieracollective.com</a>
+    <div class="footer-dot"></div>
+    <a class="footer-link" href="https://instagram.com/thecostieracollective" target="_blank" rel="noopener">@thecostieracollective</a>
+  </div>
+  <div class="footer-rule"></div>
+  <p class="footer-wordmark" data-en="The Costiera Collective — Southern Italy" data-it="The Costiera Collective — Sud Italia">The Costiera Collective — Southern Italy</p>
+</footer>
+
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#main-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  const btn = document.querySelector(`#main-nav button[onclick="showTab('${id}')"]`);
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+  history.replaceState(null, '', '#' + id);
+  if (id === 'community' && !window._mapDrawn) drawItalyMap();
+}
+
+// On load, open the tab from URL hash if present
+document.addEventListener('DOMContentLoaded', function() {
+  const hash = window.location.hash.replace('#', '');
+  const valid = ['about','community','talent','brands','roots','contact'];
+  if (hash && valid.includes(hash)) showTab(hash);
+});
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-toggle button[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (!text) return;
+    if (text.includes('<br>')) { el.innerHTML = text; } else { el.textContent = text; }
+  });
+}
+
+const HIGHLIGHT_REGIONS = ['Campania', 'Sicilia', 'Puglia', 'Sardegna', 'Abruzzo', 'Calabria'];
+
+function drawItalyMap() {
+  window._mapDrawn = true;
+  const svg = d3.select('#italy-map');
+  const width = 460, height = 560;
+  const projection = d3.geoMercator().center([13, 42.3]).scale(1850).translate([width / 2, height / 2]);
+  const path = d3.geoPath().projection(projection);
+
+  d3.json('https://cdn.jsdelivr.net/gh/openpolis/geojson-italy@master/geojson/limits_IT_regions.geojson')
+    .then(function(data) {
+      svg.selectAll('path').data(data.features).enter().append('path')
+        .attr('d', path)
+        .attr('class', function(d) {
+          const name = d.properties.reg_name || d.properties.name || '';
+          return HIGHLIGHT_REGIONS.includes(name) ? 'region-highlight' : 'region-default';
+        })
+        .append('title').text(function(d) { return d.properties.reg_name || d.properties.name || ''; });
+    })
+    .catch(function() {
+      svg.append('text').attr('x', width / 2).attr('y', height / 2)
+        .attr('text-anchor', 'middle').attr('fill', '#B0A898')
+        .attr('font-size', '14px').attr('font-family', 'Calibri, Arial, sans-serif')
+        .text('Map loading...');
+    });
+}
+
+if (document.getElementById('tab-community').classList.contains('active')) drawItalyMap();
+</script>
+
+</body>
+</html>
