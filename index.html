@@ -578,6 +578,65 @@
 
     .inquiry-card { background: var(--light); border-top: 2px solid var(--copper); padding: 24px 20px; }
 
+    /* ── Perspectives tab ── */
+    .perspectives-grid { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
+    .perspectives-card {
+      background: var(--light);
+      border-left: 3px solid var(--copper);
+      padding: 32px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+    .perspectives-tag {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 10px;
+    }
+    .perspectives-title {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+    .perspectives-body { font-size: 14px; color: #555; line-height: 1.75; }
+    .perspectives-pill {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--beige);
+      border: 1px solid var(--beige);
+      padding: 5px 12px;
+      border-radius: 2px;
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+    .perspectives-read {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--copper);
+      text-decoration: none;
+      border-bottom: 1px solid var(--copper);
+      padding-bottom: 1px;
+      margin-top: 4px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .perspectives-read:hover { opacity: 0.7; }
+    @media (max-width: 600px) {
+      .perspectives-card { grid-template-columns: 1fr; }
+    }
+
     .inquiry-title {
       font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
       font-size: 16px;
@@ -714,8 +773,9 @@
       <button onclick="showTab('community')"               data-en="Community"   data-it="Community">Community</button>
       <button onclick="showTab('talent')"                  data-en="Talent"      data-it="Talent">Talent</button>
       <button onclick="showTab('brands')"                  data-en="Brands"      data-it="Brand">Brands</button>
-      <button onclick="showTab('roots')"                   data-en="Roots"       data-it="Radici">Roots</button>
-      <button onclick="showTab('contact')"                 data-en="Contact"     data-it="Contatti">Contact</button>
+      <button onclick="showTab('roots')"                   data-en="Roots"        data-it="Radici">Roots</button>
+      <button onclick="showTab('perspectives')"            data-en="Perspectives" data-it="Prospettive">Perspectives</button>
+      <button onclick="showTab('contact')"                 data-en="Contact"      data-it="Contatti">Contact</button>
     </nav>
 
     <div class="lang-toggle">
@@ -1068,6 +1128,61 @@
 
 
 <!-- ══════════════════════════════════
+     PERSPECTIVES
+══════════════════════════════════ -->
+<div id="tab-perspectives" class="tab-panel">
+
+  <div class="hero-band">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-en="Research &amp; Analysis" data-it="Ricerca e Analisi">Research &amp; Analysis</p>
+      <h1 class="hero-title" data-en="Perspectives" data-it="Prospettive">Perspectives</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-en="The analytical lens on Southern Italy's creator economy. Original research, field observations, and the data behind what actually works." data-it="La lente analitica sull'economia dei creator nel Sud Italia. Ricerca originale, osservazioni sul campo e i dati alla base di ciò che funziona davvero.">The analytical lens on Southern Italy's creator economy. Original research, field observations, and the data behind what actually works.</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <p class="section-label" data-en="From the Field" data-it="Dal Campo">From the Field</p>
+    <h2 class="section-title" data-en="What we are working on" data-it="Cosa stiamo sviluppando">What we are working on</h2>
+    <div class="section-rule"></div>
+    <p class="section-body" data-en="TCC publishes original research on the Southern Italy creator landscape, drawn from campaign data, platform analysis, and on-the-ground experience. Pieces are added as they are ready." data-it="TCC pubblica ricerche originali sul panorama dei creator nel Sud Italia, basate su dati di campagna, analisi delle piattaforme ed esperienza sul campo. I contenuti vengono aggiunti man mano che sono pronti.">TCC publishes original research on the Southern Italy creator landscape, drawn from campaign data, platform analysis, and on-the-ground experience. Pieces are added as they are ready.</p>
+
+    <div class="perspectives-grid">
+
+      <div class="perspectives-card">
+        <div>
+          <p class="perspectives-tag" data-en="Research" data-it="Ricerca">Research</p>
+          <h3 class="perspectives-title" data-en="Hook Architecture on the Amalfi Coast: What the Data Actually Shows" data-it="L'architettura degli hook sulla Costiera Amalfitana: cosa mostrano davvero i dati">Hook Architecture on the Amalfi Coast: What the Data Actually Shows</h3>
+          <p class="perspectives-body" data-en="An analysis of hook patterns across Costiera content, drawn from a systematic review of high-performing Reels. What stops the scroll here is not what the algorithm suggests it is." data-it="Un'analisi dei pattern degli hook nei contenuti sulla Costiera, basata su una revisione sistematica dei Reel ad alte performance. Ciò che ferma lo scroll qui non è quello che l'algoritmo lascia intendere.">An analysis of hook patterns across Costiera content, drawn from a systematic review of high-performing Reels. What stops the scroll here is not what the algorithm suggests it is.</p>
+        </div>
+        <span class="perspectives-pill" data-en="Coming Soon" data-it="In Arrivo">Coming Soon</span>
+      </div>
+
+      <div class="perspectives-card">
+        <div>
+          <p class="perspectives-tag" data-en="Analysis" data-it="Analisi">Analysis</p>
+          <h3 class="perspectives-title" data-en="The Geotag Gap: How Southern Italy Is Being Underrepresented in Branded Content" data-it="Il gap del geotag: come il Sud Italia è sottorappresentato nei contenuti brandizzati">The Geotag Gap: How Southern Italy Is Being Underrepresented in Branded Content</h3>
+          <p class="perspectives-body" data-en="Location data from branded campaigns reveals a clear pattern: Southern Italy generates audience engagement far exceeding its share of branded content. The opportunity is being left on the table." data-it="I dati di geolocalizzazione delle campagne brandizzate rivelano un pattern chiaro: il Sud Italia genera un engagement di gran lunga superiore alla sua quota di contenuti brandizzati. Un'opportunità che viene lasciata sul tavolo.">Location data from branded campaigns reveals a clear pattern: Southern Italy generates audience engagement far exceeding its share of branded content. The opportunity is being left on the table.</p>
+        </div>
+        <span class="perspectives-pill" data-en="Coming Soon" data-it="In Arrivo">Coming Soon</span>
+      </div>
+
+      <div class="perspectives-card">
+        <div>
+          <p class="perspectives-tag" data-en="Brand Perspective" data-it="Per i Brand">Brand Perspective</p>
+          <h3 class="perspectives-title" data-en="Why Southern Italy Is the Next Frontier for European Brand Partnerships" data-it="Perché il Sud Italia è la nuova frontiera per le partnership europee tra brand e creator">Why Southern Italy Is the Next Frontier for European Brand Partnerships</h3>
+          <p class="perspectives-body" data-en="The audiences following Southern Italy creators skew international, educated, and high-intent. For brands with travel, lifestyle, and food positioning, the case for investing in this region is not aspirational. It is already in the data." data-it="I pubblici che seguono i creator del Sud Italia tendono a essere internazionali, istruiti e ad alto intento. Per i brand con un posizionamento su travel, lifestyle e food, il caso per investire in questa regione non è aspirazionale. È già nei dati.">The audiences following Southern Italy creators skew international, educated, and high-intent. For brands with travel, lifestyle, and food positioning, the case for investing in this region is not aspirational. It is already in the data.</p>
+        </div>
+        <span class="perspectives-pill" data-en="Coming Soon" data-it="In Arrivo">Coming Soon</span>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /tab-perspectives -->
+
+
+<!-- ══════════════════════════════════
      CONTACT
 ══════════════════════════════════ -->
 <div id="tab-contact" class="tab-panel">
@@ -1139,7 +1254,7 @@ function showTab(id) {
 // On load, open the tab from URL hash if present
 document.addEventListener('DOMContentLoaded', function() {
   const hash = window.location.hash.replace('#', '');
-  const valid = ['about','community','talent','brands','roots','contact'];
+  const valid = ['about','community','talent','brands','roots','perspectives','contact'];
   if (hash && valid.includes(hash)) showTab(hash);
 });
 
