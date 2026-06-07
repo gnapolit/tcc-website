@@ -6,12 +6,12 @@
   <title>The Costiera Collective — Creator Agency, Southern Italy</title>
   <meta name="description" content="Creator agency rooted in Southern Italy. We represent expat creators and Italian-hyphenates — and connect them with the brands worth building for." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.thecostieracollective.com" />
+  <link rel="canonical" href="https://thecostieracollective.com" />
 
   <!-- Hreflang for bilingual EN/IT -->
-  <link rel="alternate" hreflang="en" href="https://www.thecostieracollective.com" />
-  <link rel="alternate" hreflang="it" href="https://www.thecostieracollective.com" />
-  <link rel="alternate" hreflang="x-default" href="https://www.thecostieracollective.com" />
+  <link rel="alternate" hreflang="en" href="https://thecostieracollective.com" />
+  <link rel="alternate" hreflang="it" href="https://thecostieracollective.com" />
+  <link rel="alternate" hreflang="x-default" href="https://thecostieracollective.com" />
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-17JGXY6B27"></script>
@@ -25,8 +25,37 @@
   <!-- Open Graph (social sharing) -->
   <meta property="og:title" content="The Costiera Collective" />
   <meta property="og:description" content="Rooted in Southern Italy. Creating for the world. Curated talent management and brand partnerships." />
-  <meta property="og:url" content="https://www.thecostieracollective.com" />
+  <meta property="og:url" content="https://thecostieracollective.com" />
   <meta property="og:type" content="website" />
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Costiera Collective",
+    "url": "https://thecostieracollective.com",
+    "description": "Creator agency rooted in Southern Italy. We represent expat creators and Italian-hyphenates and connect them with the brands worth building for.",
+    "email": "ciao@thecostieracollective.com",
+    "foundingDate": "2025",
+    "founder": {
+      "@type": "Person",
+      "name": "Giuliana Napolitano"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Southern Italy"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Campania",
+      "addressCountry": "IT"
+    },
+    "sameAs": [
+      "https://www.instagram.com/thecostieracollective"
+    ]
+  }
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <style>
@@ -728,34 +757,93 @@
       .hero-band { padding: 48px 20px 40px; }
       .content-section { padding: 40px 20px; }
     }
+
+    /* ── Article Modal ── */
+    .article-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(27,48,87,0.88);
+      z-index: 1000;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 32px 20px 60px;
+    }
+    .article-modal.open { display: block; }
+    .article-inner {
+      background: #fff;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .article-hdr {
+      background: var(--navy);
+      padding: 36px 48px 32px;
+      position: relative;
+    }
+    .article-close {
+      position: absolute;
+      top: 18px; right: 24px;
+      background: none; border: none;
+      color: var(--beige);
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .article-close:hover { color: #fff; }
+    .article-eyebrow {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--copper); margin-bottom: 12px;
+    }
+    .article-title {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 24px; color: #fff;
+      line-height: 1.35; letter-spacing: 0.5px;
+      padding-right: 60px;
+    }
+    .article-hdr-rule { width: 40px; height: 2px; background: var(--copper); margin-top: 20px; }
+    .article-text { padding: 44px 48px; }
+    .article-p {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 16px; line-height: 1.8;
+      color: #333; margin-bottom: 22px;
+    }
+    .article-h2 {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 19px; color: var(--navy);
+      letter-spacing: 0.5px;
+      margin: 36px 0 16px;
+    }
+    .article-cta-block {
+      background: var(--light);
+      border-left: 3px solid var(--copper);
+      padding: 18px 22px;
+      margin: 30px 0 8px;
+    }
+    .article-cta-block p {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 14px; color: #555; line-height: 1.65; margin: 0;
+    }
+    .article-cta-block a { color: var(--copper); text-decoration: none; border-bottom: 1px solid var(--copper); }
+    .article-cta-block a:hover { opacity: 0.7; }
+    .article-footnote {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 12px; color: var(--beige);
+      border-top: 1px solid var(--cream);
+      padding-top: 18px; margin-top: 28px;
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .article-hdr { padding: 28px 24px 24px; }
+      .article-text { padding: 32px 24px; }
+      .article-title { font-size: 20px; }
+      .article-p { font-size: 15px; }
+    }
   </style>
 
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "The Costiera Collective",
-    "url": "https://www.thecostieracollective.com",
-    "description": "Creator agency rooted in Southern Italy. Talent management and brand partnerships for expat creators and Italian-hyphenates.",
-    "foundingLocation": {
-      "@type": "Place",
-      "name": "Naples, Italy"
-    },
-    "areaServed": {
-      "@type": "Place",
-      "name": "Southern Italy"
-    },
-    "sameAs": [
-      "https://www.instagram.com/thecostieracollective"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "ciao@thecostieracollective.com",
-      "contactType": "customer service"
-    }
-  }
-  </script>
 </head>
 <body>
 
@@ -1155,7 +1243,7 @@
           <h3 class="perspectives-title" data-en="Hook Architecture on the Amalfi Coast: What the Data Actually Shows" data-it="L'architettura degli hook sulla Costiera Amalfitana: cosa mostrano davvero i dati">Hook Architecture on the Amalfi Coast: What the Data Actually Shows</h3>
           <p class="perspectives-body" data-en="An analysis of hook patterns across Costiera content, drawn from a systematic review of high-performing Reels. What stops the scroll here is not what the algorithm suggests it is." data-it="Un'analisi dei pattern degli hook nei contenuti sulla Costiera, basata su una revisione sistematica dei Reel ad alte performance. Ciò che ferma lo scroll qui non è quello che l'algoritmo lascia intendere.">An analysis of hook patterns across Costiera content, drawn from a systematic review of high-performing Reels. What stops the scroll here is not what the algorithm suggests it is.</p>
         </div>
-        <span class="perspectives-pill" data-en="Coming Soon" data-it="In Arrivo">Coming Soon</span>
+        <a class="perspectives-read" href="#" onclick="openArticle('article-p1'); return false;" data-en="Read" data-it="Leggi">Read</a>
       </div>
 
       <div class="perspectives-card">
@@ -1225,6 +1313,69 @@
   </div>
 
 </div><!-- /tab-contact -->
+
+
+<!-- ══════════════════════════════════
+     ARTICLE MODAL — Hook Architecture
+══════════════════════════════════ -->
+<div id="article-p1" class="article-modal" onclick="if(event.target===this)closeArticle('article-p1')">
+  <div class="article-inner">
+    <div class="article-hdr">
+      <button class="article-close" onclick="closeArticle('article-p1')" data-en="✕ Close" data-it="✕ Chiudi">✕ Close</button>
+      <p class="article-eyebrow" data-en="Research" data-it="Ricerca">Research</p>
+      <h1 class="article-title" data-en="Hook Architecture on the Amalfi Coast: What the Data Actually Shows" data-it="L'architettura degli hook sulla Costiera Amalfitana: cosa mostrano davvero i dati">Hook Architecture on the Amalfi Coast: What the Data Actually Shows</h1>
+      <div class="article-hdr-rule"></div>
+    </div>
+    <div class="article-text">
+
+      <p class="article-p" data-en="The Amalfi Coast is one of the most photographed places in the world. It is also one of the most misrepresented." data-it="La Costiera Amalfitana è uno dei luoghi più fotografati al mondo. È anche uno dei più fraintesi.">The Amalfi Coast is one of the most photographed places in the world. It is also one of the most misrepresented.</p>
+
+      <p class="article-p" data-en="Not through inaccuracy. The water is that color, the buildings are those pastels, the light does that thing in the evening. The misrepresentation is structural. It operates through omission and repetition: 60% of posts in this ecosystem open with the same aesthetic hook. A feeling. A visual. A superlative. Beautiful view. Prettiest cafe. Most dramatic cliffs. The same argument made 126 different times." data-it="Non per inesattezza. L'acqua è davvero di quel colore, gli edifici sono davvero quei pastelli, la luce fa davvero quella cosa di sera. Il fraintendimento è strutturale. Funziona attraverso l'omissione e la ripetizione: il 60% dei post in questo ecosistema apre con lo stesso hook estetico. Una sensazione. Un'immagine. Un superlativo. Vista meravigliosa. Bar più bello. Scogliere più drammatiche. Lo stesso argomento ripetuto 126 volte.">Not through inaccuracy. The water is that color, the buildings are those pastels, the light does that thing in the evening. The misrepresentation is structural. It operates through omission and repetition: 60% of posts in this ecosystem open with the same aesthetic hook. A feeling. A visual. A superlative. Beautiful view. Prettiest cafe. Most dramatic cliffs. The same argument made 126 different times.</p>
+
+      <p class="article-p" data-en="We analyzed 209 posts from the #amalficoast hashtag on Instagram. What we found is not that the content is bad. It is that it is the same. And in a saturated ecosystem, sameness has a ceiling." data-it="Abbiamo analizzato 209 post dall'hashtag #amalficoast su Instagram. Quello che abbiamo trovato non è che i contenuti siano brutti. È che sono identici. E in un ecosistema saturo, l'uniformità ha un soffitto.">We analyzed 209 posts from the #amalficoast hashtag on Instagram. What we found is not that the content is bad. It is that it is the same. And in a saturated ecosystem, sameness has a ceiling.</p>
+
+      <h2 class="article-h2" data-en="The real gap is not quality. It is substance." data-it="Il vero problema non è la qualità. È la sostanza.">The real gap is not quality. It is substance.</h2>
+
+      <p class="article-p" data-en="More than half of all posts we reviewed mention none of the following: crowds, safety, logistics, pricing, seasonal timing, or community impact. The Amalfi Coast is one of Europe's most infrastructurally stressed destinations: a 13-town UNESCO site with one functioning hospital for three million annual tourists. You would not know that from the content ecosystem. You would see golden hour. You would see limoncello. You would see the same beach club." data-it="Più della metà dei post che abbiamo esaminato non menziona nessuno dei seguenti elementi: folla, sicurezza, logistica, prezzi, stagionalità o impatto sulla comunità locale. La Costiera Amalfitana è una delle destinazioni più stressate a livello infrastrutturale in Europa: un sito UNESCO di 13 comuni con un unico ospedale funzionante per tre milioni di turisti annui. Non lo si direbbe guardando l'ecosistema dei contenuti. Si vede l'ora d'oro. Si vede il limoncello. Si vede lo stesso beach club.">More than half of all posts we reviewed mention none of the following: crowds, safety, logistics, pricing, seasonal timing, or community impact. The Amalfi Coast is one of Europe's most infrastructurally stressed destinations: a 13-town UNESCO site with one functioning hospital for three million annual tourists. You would not know that from the content ecosystem. You would see golden hour. You would see limoncello. You would see the same beach club.</p>
+
+      <p class="article-p" data-en="This is not what audiences are hungry for. It is what they are being fed." data-it="Non è questo ciò di cui il pubblico ha fame. È quello che gli viene servito.">This is not what audiences are hungry for. It is what they are being fed.</p>
+
+      <p class="article-p" data-en="The posts that drove the highest comment engagement in the dataset were not the ones with the most polished visuals. They were the ones that challenged something. Content framing crowd realities, seasonal logistics, the gap between the promoted version of this coastline and the lived one: these are the posts at the top of the engagement charts. One Reel asking a blunt question about what peak season actually looks like generated more comments than accounts with hundreds of thousands of followers producing textbook aspirational content." data-it="I post che hanno generato il maggior engagement nei commenti non erano quelli con le immagini più curate. Erano quelli che mettevano in discussione qualcosa. I contenuti che affrontavano la realtà delle folle, la logistica stagionale, il divario tra la versione promossa di questa costa e quella vissuta: questi sono i post in cima alle classifiche. Un Reel che poneva una domanda diretta su come appare davvero l'alta stagione ha generato più commenti di account con centinaia di migliaia di follower che producono contenuti aspirazionali da manuale.">The posts that drove the highest comment engagement in the dataset were not the ones with the most polished visuals. They were the ones that challenged something. Content framing crowd realities, seasonal logistics, the gap between the promoted version of this coastline and the lived one: these are the posts at the top of the engagement charts. One Reel asking a blunt question about what peak season actually looks like generated more comments than accounts with hundreds of thousands of followers producing textbook aspirational content.</p>
+
+      <p class="article-p" data-en="This was not an outlier. Three independent pieces of counter-narrative content appeared across the top comment performers. The pattern holds." data-it="Non si tratta di un'anomalia. Tre contenuti indipendenti con un approccio contro-narrativo compaiono tra i performer di punta. Il pattern regge.">This was not an outlier. Three independent pieces of counter-narrative content appeared across the top comment performers. The pattern holds.</p>
+
+      <h2 class="article-h2" data-en="What this means for brands" data-it="Cosa significa per i brand">What this means for brands</h2>
+
+      <p class="article-p" data-en="The conclusion is not to stop working with creators who make this region look beautiful. It is to stop treating beauty as the only criterion." data-it="La conclusione non è smettere di lavorare con creator che rendono questa regione bella. È smettere di trattare la bellezza come unico criterio.">The conclusion is not to stop working with creators who make this region look beautiful. It is to stop treating beauty as the only criterion.</p>
+
+      <p class="article-p" data-en="An audience that follows a creator for aesthetic content will engage aesthetically: a save, a like, a share to a mood board. An audience that follows because a creator taught them something, showed them something real, or challenged an assumption they walked in with is a different kind of audience. They comment. They ask questions. They come back. They trust." data-it="Un pubblico che segue un creator per i contenuti estetici interagisce in modo estetico: un salvataggio, un like, una condivisione su una mood board. Un pubblico che segue perché un creator gli ha insegnato qualcosa, gli ha mostrato qualcosa di reale o ha sfidato un'idea preconcetta è un pubblico diverso. Commenta. Fa domande. Torna. Si fida.">An audience that follows a creator for aesthetic content will engage aesthetically: a save, a like, a share to a mood board. An audience that follows because a creator taught them something, showed them something real, or challenged an assumption they walked in with is a different kind of audience. They comment. They ask questions. They come back. They trust.</p>
+
+      <p class="article-p" data-en="The Amalfi Coast content ecosystem has more than enough beauty. It has a significant shortage of creators willing to be useful." data-it="L'ecosistema dei contenuti sulla Costiera Amalfitana ha più che abbastanza bellezza. Ha una carenza significativa di creator disposti a essere utili.">The Amalfi Coast content ecosystem has more than enough beauty. It has a significant shortage of creators willing to be useful.</p>
+
+      <h2 class="article-h2" data-en="Where TCC comes in" data-it="Il ruolo di TCC">Where TCC comes in</h2>
+
+      <p class="article-p" data-en="The Costiera Collective was built around this gap, and around a commitment to responsible marketing as a core principle, not an afterthought." data-it="The Costiera Collective è nata attorno a questo divario, e attorno a un impegno per il marketing responsabile come principio fondamentale, non come ripensamento.">The Costiera Collective was built around this gap, and around a commitment to responsible marketing as a core principle, not an afterthought.</p>
+
+      <p class="article-p" data-en="The creators we represent have earned their audiences through substance, honest perspective, and a genuine investment in the place they call home. They are people who live with the consequences of how this region gets marketed. They understand what it costs when safety information is absent, when communities are treated as backdrop, when the same aspirational content cycle produces another wave of uninformed tourism." data-it="I creator che rappresentiamo hanno conquistato il loro pubblico attraverso la sostanza, una prospettiva onesta e un investimento reale nel luogo che chiamano casa. Sono persone che vivono le conseguenze di come questa regione viene raccontata. Capiscono cosa comporta l'assenza di informazioni sulla sicurezza, quando le comunità vengono trattate come sfondo, quando lo stesso ciclo di contenuti aspirazionali genera un'altra ondata di turismo disinformato.">The creators we represent have earned their audiences through substance, honest perspective, and a genuine investment in the place they call home. They are people who live with the consequences of how this region gets marketed. They understand what it costs when safety information is absent, when communities are treated as backdrop, when the same aspirational content cycle produces another wave of uninformed tourism.</p>
+
+      <p class="article-p" data-en="Responsible marketing is not a constraint on good content here. It is what good content looks like." data-it="Il marketing responsabile non è un vincolo per i buoni contenuti qui. È quello che sembrano i buoni contenuti.">Responsible marketing is not a constraint on good content here. It is what good content looks like.</p>
+
+      <p class="article-p" data-en="When we match a brand with a creator, we are not selling access to a follower count. We are brokering the trust that only comes from never having misrepresented the place you call home, and from holding to a standard of content that serves both audience and community." data-it="Quando abbiniamo un brand a un creator, non vendiamo l'accesso a un numero di follower. Stiamo mediando la fiducia che deriva solo dal non aver mai frainteso il luogo che chiami casa, e dall'aderire a uno standard di contenuto che serve sia il pubblico che la comunità.">When we match a brand with a creator, we are not selling access to a follower count. We are brokering the trust that only comes from never having misrepresented the place you call home, and from holding to a standard of content that serves both audience and community.</p>
+
+      <p class="article-p" data-en="For brands ready to build something real in this market, that foundation is the asset. The data says the audience can tell the difference." data-it="Per i brand pronti a costruire qualcosa di reale in questo mercato, quella base è il vero asset. I dati dicono che il pubblico sa fare la differenza.">For brands ready to build something real in this market, that foundation is the asset. The data says the audience can tell the difference.</p>
+
+      <div class="article-cta-block">
+        <p>
+          <span data-en="Ready to work with creators on the Amalfi Coast? Get in touch at" data-it="Pronto a lavorare con creator sulla Costiera Amalfitana? Scrivici a">Ready to work with creators on the Amalfi Coast? Get in touch at</span>
+          <a href="mailto:ciao@thecostieracollective.com"> ciao@thecostieracollective.com</a>
+        </p>
+      </div>
+
+      <p class="article-footnote" data-en="Analysis based on 209 posts collected from #amalficoast, May 15–26, 2026." data-it="Analisi basata su 209 post raccolti da #amalficoast, 15–26 maggio 2026.">Analysis based on 209 posts collected from #amalficoast, May 15–26, 2026.</p>
+
+    </div>
+  </div>
+</div>
 
 
 <!-- FOOTER -->
@@ -1299,6 +1450,15 @@ function drawItalyMap() {
 }
 
 if (document.getElementById('tab-community').classList.contains('active')) drawItalyMap();
+
+function openArticle(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeArticle(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 
 </body>
