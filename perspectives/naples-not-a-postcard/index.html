@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naples Is Not a Postcard — The Costiera Collective</title>
+  <meta name="description" content="Zara's Naples campaign hit one million views in an hour. But Naples' own press is already raising the cartolina question. Here's what it means for brands building in Southern Italy.">
+  <meta property="og:title" content="Naples Is Not a Postcard. Here's What Brands Do About That.">
+  <meta property="og:description" content="Zara chose Naples. So did Givenchy, Max Mara, Nike and Dolce & Gabbana. The commercial case is proven. The question brands now face is a different one.">
+  <meta property="og:url" content="https://www.thecostieracollective.com/perspectives/naples-not-a-postcard">
+  <meta property="og:site_name" content="The Costiera Collective">
+  <link rel="canonical" href="https://www.thecostieracollective.com/perspectives/naples-not-a-postcard">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #1B3057;
+      --navyAlt: #243D6B;
+      --copper:  #C4785A;
+      --cream:   #E8DCC8;
+      --beige:   #B0A898;
+      --light:   #F5F3EF;
+      --white:   #FFFFFF;
+    }
+    body { font-family: 'Calibri', 'Arial', sans-serif; background: var(--white); color: #222; }
+
+    /* ── Header ── */
+    header { background: var(--navy); position: sticky; top: 0; z-index: 100; }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; gap: 32px;
+      padding: 0 32px; height: 72px;
+    }
+    .wordmark { text-decoration: none; flex-shrink: 0; }
+    .wordmark-the { display: block; font-family: 'Calibri', 'Arial', sans-serif; font-size: 8.5px; font-weight: 700; letter-spacing: 4px; color: var(--beige); text-transform: uppercase; margin-bottom: 1px; }
+    .wordmark-main { display: block; font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif; font-size: 15px; color: var(--white); letter-spacing: 3px; text-transform: uppercase; line-height: 1.15; }
+    .wordmark-rule { width: 100%; height: 1px; background: var(--copper); margin-top: 4px; }
+    nav { display: flex; gap: 4px; flex: 1; }
+    nav a { font-family: 'Calibri', 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; padding: 7px 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--white); }
+    nav a.active { color: var(--white); position: relative; }
+    nav a.active::after { content: ''; position: absolute; bottom: 0; left: 12px; right: 12px; height: 2px; background: var(--copper); }
+    .lang-toggle { display: flex; gap: 4px; margin-left: auto; }
+    .lang-toggle button { font-family: 'Calibri', 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; background: none; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.55); padding: 4px 8px; cursor: pointer; transition: all 0.2s; }
+    .lang-toggle button.active { background: var(--copper); border-color: var(--copper); color: var(--white); }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb { background: var(--light); border-bottom: 1px solid var(--cream); padding: 12px 32px; }
+    .breadcrumb-inner { max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a, .breadcrumb span { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--beige); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--copper); }
+    .breadcrumb-sep { color: var(--beige); font-size: 10px; }
+
+    /* ── Hero ── */
+    .article-hero { background: var(--navy); padding: 56px 32px 48px; }
+    .article-hero-inner { max-width: 760px; margin: 0 auto; }
+    .article-tag { font-family: 'Calibri', 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--copper); margin-bottom: 16px; }
+    .article-headline { font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif; font-size: 34px; color: var(--white); line-height: 1.3; letter-spacing: 0.5px; margin-bottom: 20px; }
+    .article-rule { width: 40px; height: 2px; background: var(--copper); margin-bottom: 20px; }
+    .article-deck { font-family: 'Calibri', 'Arial', sans-serif; font-size: 16px; color: var(--cream); line-height: 1.7; max-width: 600px; }
+
+    /* ── Body ── */
+    .article-body { max-width: 760px; margin: 0 auto; padding: 52px 32px 80px; }
+    .article-p { font-family: 'Calibri', 'Arial', sans-serif; font-size: 17px; line-height: 1.85; color: #2a2a2a; margin-bottom: 24px; }
+    .article-p a { color: var(--copper); text-decoration: none; border-bottom: 1px solid rgba(196,120,90,0.4); transition: border-color 0.2s; }
+    .article-p a:hover { border-color: var(--copper); }
+    .article-h2 { font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif; font-size: 22px; color: var(--navy); letter-spacing: 0.5px; margin: 44px 0 18px; }
+    .article-cta { background: var(--light); border-left: 3px solid var(--copper); padding: 20px 24px; margin: 40px 0 8px; }
+    .article-cta p { font-family: 'Calibri', 'Arial', sans-serif; font-size: 15px; color: #555; line-height: 1.7; margin: 0; }
+    .article-cta a { color: var(--copper); text-decoration: none; border-bottom: 1px solid var(--copper); }
+    .article-cta a:hover { opacity: 0.7; }
+    .article-footnote { font-family: 'Calibri', 'Arial', sans-serif; font-size: 12px; color: var(--beige); border-top: 1px solid var(--cream); padding-top: 20px; margin-top: 32px; line-height: 1.8; }
+    .article-footnote a { color: var(--beige); text-decoration: none; border-bottom: 1px solid rgba(176,168,152,0.4); }
+    .article-footnote a:hover { color: var(--copper); border-color: var(--copper); }
+
+    /* ── Instagram embed ── */
+    .embed-wrap { margin: 36px auto; max-width: 540px; }
+    .embed-caption { font-family: 'Calibri', 'Arial', sans-serif; font-size: 12px; color: var(--beige); text-align: center; margin-top: 8px; font-style: italic; }
+
+    /* ── Back strip ── */
+    .back-strip { background: var(--light); border-top: 1px solid var(--cream); padding: 24px 32px; text-align: center; }
+    .back-link { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); text-decoration: none; border-bottom: 1px solid var(--copper); padding-bottom: 1px; }
+    .back-link:hover { opacity: 0.7; }
+
+    /* ── Footer ── */
+    footer { background: var(--navy); padding: 44px 32px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .footer-links { display: flex; justify-content: center; align-items: center; gap: 28px; margin-bottom: 20px; }
+    .footer-link { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--beige); text-decoration: none; transition: color 0.2s; }
+    .footer-link:hover { color: var(--white); }
+    .footer-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--copper); }
+    .footer-rule { width: 36px; height: 1.5px; background: var(--copper); margin: 16px auto; }
+    .footer-wordmark { font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif; font-size: 13px; color: rgba(255,255,255,0.3); letter-spacing: 4px; text-transform: uppercase; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 16px; }
+      nav a { font-size: 9px; padding: 6px 8px; }
+      .article-hero { padding: 40px 20px 36px; }
+      .article-headline { font-size: 26px; }
+      .article-body { padding: 36px 20px 60px; }
+      .article-p { font-size: 16px; }
+      .breadcrumb { padding: 10px 20px; }
+    }
+    @media (max-width: 600px) {
+      .header-inner { flex-wrap: wrap; height: auto; padding: 16px 16px 0; }
+      .wordmark { flex: 1; }
+      .lang-toggle { margin-left: auto; }
+      nav { order: 3; flex: 0 0 100%; overflow-x: auto; scrollbar-width: none; padding: 0; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.1); }
+      nav::-webkit-scrollbar { display: none; }
+      nav a { flex-shrink: 0; font-size: 9px; padding: 9px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="/">
+      <span class="wordmark-the">THE</span>
+      <span class="wordmark-main">COSTIERA<br>COLLECTIVE</span>
+      <div class="wordmark-rule"></div>
+    </a>
+    <nav>
+      <a href="/#about"        data-en="About"        data-it="Chi Siamo">About</a>
+      <a href="/#community"    data-en="Community"    data-it="Community">Community</a>
+      <a href="/#talent"       data-en="Talent"        data-it="Talent">Talent</a>
+      <a href="/#brands"       data-en="Brands"        data-it="Brand">Brands</a>
+      <a href="/#roots"        data-en="Roots"         data-it="Radici">Roots</a>
+      <a href="/#perspectives" class="active" data-en="Perspectives" data-it="Prospettive">Perspectives</a>
+      <a href="/#contact"      data-en="Contact"       data-it="Contatti">Contact</a>
+    </nav>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('it')">IT</button>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/#perspectives" data-en="Perspectives" data-it="Prospettive">Perspectives</a>
+    <span class="breadcrumb-sep">›</span>
+    <span data-en="Brand Perspective" data-it="Per i Brand">Brand Perspective</span>
+  </div>
+</div>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <p class="article-tag" data-en="Brand Perspective" data-it="Per i Brand">Brand Perspective</p>
+    <h1 class="article-headline" data-en="Naples Is Not a Postcard. Here's What Brands Do About That." data-it="Napoli non è una cartolina. Ed è quello che i brand devono capire.">Naples Is Not a Postcard. Here's What Brands Do About That.</h1>
+    <div class="article-rule"></div>
+    <p class="article-deck" data-en="Zara chose Naples. So did Givenchy, Max Mara, Nike, and Dolce &amp; Gabbana. The commercial case is proven. The question brands now face is a different one." data-it="Zara ha scelto Napoli. Come Givenchy, Max Mara, Nike e Dolce &amp; Gabbana. Il caso commerciale è dimostrato. La domanda che i brand si trovano ora di fronte è diversa.">Zara chose Naples. So did Givenchy, Max Mara, Nike, and Dolce &amp; Gabbana. The commercial case is proven. The question brands now face is a different one.</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- P1: Zara film — with inline source link, EN/IT handled via data-lang -->
+  <p class="article-p" data-lang="en">In late May 2026, Zara published a short film titled "Funiculì Funiculà." It opened on the sea, with Vesuvius in the distance. It moved through the historic center, past artisan workshops and open-air markets, through the streets around Palazzo dello Spagnolo and across Piazza del Plebiscito. Models wore the summer collection. A reimagining of the Neapolitan classic played throughout. The film <a href="https://www.ilmattino.it/schede/video_zara_napoli_pubblicita_instagram_funiculi_funicula-9562231.html" target="_blank" rel="noopener">surpassed one million views in its first hour</a>.</p>
+  <p class="article-p" data-lang="it">Alla fine di maggio 2026, Zara ha pubblicato un cortometraggio intitolato "Funiculì Funiculà". Si apre sul mare, con il Vesuvio sullo sfondo. Scorre attraverso il centro storico, tra botteghe artigiane e mercati all'aperto, per le strade attorno a Palazzo dello Spagnolo e fino a Piazza del Plebiscito. Le modelle indossano la collezione estiva. Una reinterpretazione del classico napoletano accompagna le immagini. Il film <a href="https://www.ilmattino.it/schede/video_zara_napoli_pubblicita_instagram_funiculi_funicula-9562231.html" target="_blank" rel="noopener">ha superato un milione di visualizzazioni nella prima ora</a>.</p>
+
+  <!-- Instagram Reel embed -->
+  <div class="embed-wrap">
+    <blockquote class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DY4gPMvNojv/?utm_source=ig_embed&amp;utm_campaign=loading"
+      data-instgrm-version="14"
+      style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:calc(100% - 2px);">
+      <div style="padding:16px;">
+        <a href="https://www.instagram.com/reel/DY4gPMvNojv/" target="_blank" rel="noopener" style="color:#000; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;">View on Instagram — Zara "Funiculì Funiculà"</a>
+      </div>
+    </blockquote>
+    <script async src="//www.instagram.com/embed.js"></script>
+    <p class="embed-caption" data-en="Zara, &ldquo;An Italian Summer Mood. New Collection&rdquo; — Instagram Reel, May 2026" data-it="Zara, &ldquo;An Italian Summer Mood. New Collection&rdquo; — Instagram Reel, maggio 2026">Zara, &ldquo;An Italian Summer Mood. New Collection&rdquo; — Instagram Reel, May 2026</p>
+  </div>
+
+  <!-- P2: Zara is not alone — with Max Mara/WWD link -->
+  <p class="article-p" data-lang="en">Zara is not alone. In the months before, Givenchy had shot in Naples. <a href="https://wwd.com/fashion-news/fashion-scoops/max-mara-resort-2026-show-caserta-royal-palace-unesco-site-1236936281/" target="_blank" rel="noopener">Max Mara staged its Resort 2026 show at the Royal Palace of Caserta</a>. Nike had been here. Dolce &amp; Gabbana has made the city a recurring fixture. Naples has become the most commercially activated location in Italian creative right now, chosen at scale by fashion's biggest names.</p>
+  <p class="article-p" data-lang="it">Zara non è sola. Nei mesi precedenti, Givenchy aveva girato a Napoli. <a href="https://wwd.com/fashion-news/fashion-scoops/max-mara-resort-2026-show-caserta-royal-palace-unesco-site-1236936281/" target="_blank" rel="noopener">Max Mara aveva organizzato la sfilata Resort 2026 alla Reggia di Caserta</a>. Nike era passata da queste parti. Dolce &amp; Gabbana ha fatto della città un appuntamento ricorrente. Napoli è diventata il luogo più attivato commercialmente nel panorama creativo italiano, scelta su scala dai più grandi nomi della moda.</p>
+
+  <p class="article-p" data-en="The commercial case is proven. The question brands now face is a different one." data-it="Il caso commerciale è dimostrato. La domanda che i brand si trovano ora di fronte è diversa.">The commercial case is proven. The question brands now face is a different one.</p>
+
+  <h2 class="article-h2" data-en="The debate Naples is already having" data-it="Il dibattito che Napoli sta già avendo">The debate Naples is already having</h2>
+
+  <!-- P4: Canale 8 + ItalyPost — with inline links -->
+  <p class="article-p" data-lang="en">Within days of the Zara film going viral, Naples was asking its own questions. On June 1, <a href="https://www.canaleotto.it/da-zara-a-dolcegabbana-il-boom-del-brand-napoli-ma-non-riduciamola-a-una-cartolina/" target="_blank" rel="noopener">Canale 8, the city's regional broadcaster, published a piece</a> headlined: "From Zara to Dolce &amp; Gabbana, the boom of the Naples brand: but let's not reduce it to a postcard." Teresa Armato, the city's Assessore al Turismo, went on record: "Napoli non è solo una cartolina." <a href="https://www.italypost.it/news/cultura/6898/la-funicolare-del-fast-fashion-zara-passa-da-napoli-per-provare-a-scalare-lolimpo-del-lusso.html" target="_blank" rel="noopener">ItalyPost ran a more pointed analysis</a>, describing the campaign as "the funicular of fast fashion" and positioning Zara's choice of Naples not as cultural celebration but as strategic repositioning, using the city's cultural capital to climb toward a luxury perception the brand is actively pursuing.</p>
+  <p class="article-p" data-lang="it">A pochi giorni dalla viralità del film di Zara, Napoli poneva già le proprie domande. Il 1° giugno, <a href="https://www.canaleotto.it/da-zara-a-dolcegabbana-il-boom-del-brand-napoli-ma-non-riduciamola-a-una-cartolina/" target="_blank" rel="noopener">Canale 8 ha pubblicato un pezzo</a> dal titolo: "Da Zara a Dolce&amp;Gabbana, il boom del brand Napoli: ma non riduciamola a una cartolina." Teresa Armato, Assessore al Turismo del Comune di Napoli, ha dichiarato pubblicamente: "Napoli non è solo una cartolina." <a href="https://www.italypost.it/news/cultura/6898/la-funicolare-del-fast-fashion-zara-passa-da-napoli-per-provare-a-scalare-lolimpo-del-lusso.html" target="_blank" rel="noopener">ItalyPost ha pubblicato un'analisi più puntuale</a>, descrivendo la campagna come "la funicolare del fast fashion" e posizionando la scelta di Zara per Napoli non come celebrazione culturale, ma come riposizionamento strategico che usa il capitale culturale della città per scalare la percezione luxury che il brand sta attivamente perseguendo.</p>
+
+  <p class="article-p" data-en="These are not hostile takes. They are the city's own voice reflecting on what it means to be chosen." data-it="Non sono posizioni ostili. È la voce della città stessa che riflette su cosa significhi essere scelti.">These are not hostile takes. They are the city's own voice reflecting on what it means to be chosen.</p>
+
+  <h2 class="article-h2" data-en="What was missing" data-it="Cosa mancava">What was missing</h2>
+
+  <!-- P6: Production/CAP Dept — with Engage.it link -->
+  <p class="article-p" data-lang="en">Zara's film was produced by <a href="https://www.engage.it/campagne/napoli-protagonista-del-nuovo-spot-zara-an-italian-summer-mood-new-collection.aspx" target="_blank" rel="noopener">CAP Dept, a Spanish creative agency</a> with a longstanding relationship with Inditex, alongside Zara's internal team. No Neapolitan talent, no local creative partner, and no community creator involvement has been confirmed by any source covering the campaign. The production arrived in Naples, shot a genuinely cinematic portrait of the city, and left.</p>
+  <p class="article-p" data-lang="it">Il film di Zara è stato prodotto da <a href="https://www.engage.it/campagne/napoli-protagonista-del-nuovo-spot-zara-an-italian-summer-mood-new-collection.aspx" target="_blank" rel="noopener">CAP Dept, un'agenzia creativa spagnola</a> con un rapporto consolidato con Inditex, insieme al team interno di Zara. Nessun talento napoletano, nessun partner creativo locale e nessun coinvolgimento di creator della comunità è stato confermato da alcuna fonte che abbia coperto la campagna. La produzione è arrivata a Napoli, ha girato un ritratto cinematograficamente riuscito della città, e se n'è andata.</p>
+
+  <p class="article-p" data-en="This is not a criticism of the work. The film is well-executed. The city is shown with affection and a degree of honesty. But the structure of the production reflects a pattern common to every major brand that has activated in Naples recently: the location is chosen for what it represents, not for who it belongs to." data-it="Non è una critica al lavoro. Il film è ben eseguito. La città è mostrata con affetto e un certo grado di onestà. Ma la struttura della produzione riflette un pattern comune a ogni grande brand che ha attivato a Napoli di recente: la location viene scelta per ciò che rappresenta, non per chi le appartiene.">This is not a criticism of the work. The film is well-executed. The city is shown with affection and a degree of honesty. But the structure of the production reflects a pattern common to every major brand that has activated in Naples recently: the location is chosen for what it represents, not for who it belongs to.</p>
+
+  <p class="article-p" data-en="The creators who live in these neighborhoods, who have spent years building audiences that trust them on this specific territory, were not in the room. That is a structural gap, not a stylistic choice." data-it="I creator che vivono in questi quartieri, che hanno trascorso anni a costruire audience che si fidano di loro su questo specifico territorio, non erano in sala. È una lacuna strutturale, non una scelta stilistica.">The creators who live in these neighborhoods, who have spent years building audiences that trust them on this specific territory, were not in the room. That is a structural gap, not a stylistic choice.</p>
+
+  <h2 class="article-h2" data-en="What the next wave of brand investment looks like" data-it="Come sarà la prossima ondata di investimento dei brand">What the next wave of brand investment looks like</h2>
+
+  <p class="article-p" data-en="Naples' Tourism Councillor is right. The city is not a postcard, and brands that treat it as one will find diminishing returns in a place where audiences are increasingly attuned to the difference. The cartolina critique is already live in the city's own press. It will not stay contained to Italian media." data-it="L'Assessore al Turismo di Napoli ha ragione. La città non è una cartolina, e i brand che la trattano come tale troveranno rendimenti decrescenti in un luogo dove il pubblico è sempre più capace di cogliere la differenza. La critica alla cartolina è già viva nella stampa cittadina. Non resterà confinata ai media italiani.">Naples' Tourism Councillor is right. The city is not a postcard, and brands that treat it as one will find diminishing returns in a place where audiences are increasingly attuned to the difference. The cartolina critique is already live in the city's own press. It will not stay contained to Italian media.</p>
+
+  <p class="article-p" data-en="The brands that build something durable here will be the ones that move from location to relationship. Not because that is the ethical choice, though it is, but because it is the more effective one. A campaign that uses Naples as a set produces a single viral moment. A brand that embeds itself in the trust economy of the city's creative community produces something that compounds." data-it="I brand che costruiranno qualcosa di duraturo qui saranno quelli che passeranno dalla location alla relazione. Non perché sia la scelta etica, anche se lo è, ma perché è quella più efficace. Una campagna che usa Napoli come set produce un singolo momento virale. Un brand che si radica nell'economia della fiducia della comunità creativa della città produce qualcosa che si accumula nel tempo.">The brands that build something durable here will be the ones that move from location to relationship. Not because that is the ethical choice, though it is, but because it is the more effective one. A campaign that uses Naples as a set produces a single viral moment. A brand that embeds itself in the trust economy of the city's creative community produces something that compounds.</p>
+
+  <!-- Cross-link to first article -->
+  <p class="article-p" data-lang="en">The distinction is not between beautiful content and authentic content. As we found in our <a href="/perspectives/hook-architecture">analysis of the Amalfi Coast content ecosystem</a>, the accounts that drive the deepest audience engagement are the ones that have built genuine trust through substance and honest perspective, not aesthetic output alone. It is between content that the city's audience recognizes as made about them, and content they feel was made with them.</p>
+  <p class="article-p" data-lang="it">La distinzione non è tra contenuto bello e contenuto autentico. Come abbiamo riscontrato nella nostra <a href="/perspectives/hook-architecture">analisi dell'ecosistema dei contenuti sulla Costiera Amalfitana</a>, gli account che generano il maggior engagement sono quelli che hanno costruito fiducia reale attraverso sostanza e prospettiva onesta, non solo output estetico. È tra contenuto che il pubblico della città riconosce come fatto su di loro, e contenuto che sentono fatto con loro.</p>
+
+  <h2 class="article-h2" data-en="Where TCC comes in" data-it="Il ruolo di TCC">Where TCC comes in</h2>
+
+  <p class="article-p" data-en="The Costiera Collective exists at precisely this intersection. The creators we represent are not access points to a location. They are the people Southern Italy trusts, whose audiences follow them because of a relationship built over years of honest, rooted content. They are here. They know the neighborhood, the light, the artisans, the market vendors. They were not hired for a summer shoot." data-it="The Costiera Collective esiste esattamente in questo spazio. I creator che rappresentiamo non sono punti di accesso a una location. Sono le persone di cui il Sud Italia si fida, i cui pubblici li seguono per una relazione costruita in anni di contenuti onesti e radicati. Sono qui. Conoscono il quartiere, la luce, gli artigiani, i bancarellai del mercato. Non sono stati assunti per un servizio estivo.">The Costiera Collective exists at precisely this intersection. The creators we represent are not access points to a location. They are the people Southern Italy trusts, whose audiences follow them because of a relationship built over years of honest, rooted content. They are here. They know the neighborhood, the light, the artisans, the market vendors. They were not hired for a summer shoot.</p>
+
+  <p class="article-p" data-en="When a brand partners through TCC, it is not buying access to Southern Italy as a backdrop. It is entering a relationship with the creative community that actually lives here, whose credibility cannot be imported on a production schedule." data-it="Quando un brand collabora attraverso TCC, non sta acquistando accesso al Sud Italia come sfondo. Sta entrando in una relazione con la comunità creativa che ci vive davvero, la cui credibilità non può essere importata con un piano di produzione.">When a brand partners through TCC, it is not buying access to Southern Italy as a backdrop. It is entering a relationship with the creative community that actually lives here, whose credibility cannot be imported on a production schedule.</p>
+
+  <p class="article-p" data-en="Naples is not a postcard. The brands that understand that are the ones worth building with." data-it="Napoli non è una cartolina. I brand che lo capiscono sono quelli con cui vale la pena costruire.">Naples is not a postcard. The brands that understand that are the ones worth building with.</p>
+
+  <div class="article-cta">
+    <p>
+      <span data-en="Ready to build something real in Southern Italy? Get in touch at" data-it="Pronti a costruire qualcosa di reale nel Sud Italia? Scrivici a">Ready to build something real in Southern Italy? Get in touch at</span>
+      <a href="mailto:ciao@thecostieracollective.com"> ciao@thecostieracollective.com</a>
+    </p>
+  </div>
+
+  <p class="article-footnote" data-lang="en">Sources: <a href="https://www.ilmattino.it/schede/video_zara_napoli_pubblicita_instagram_funiculi_funicula-9562231.html" target="_blank" rel="noopener">Il Mattino</a> &middot; <a href="https://www.engage.it/campagne/napoli-protagonista-del-nuovo-spot-zara-an-italian-summer-mood-new-collection.aspx" target="_blank" rel="noopener">Engage.it — "Napoli protagonista del nuovo spot Zara" (June 3, 2026)</a> &middot; <a href="https://www.canaleotto.it/da-zara-a-dolcegabbana-il-boom-del-brand-napoli-ma-non-riduciamola-a-una-cartolina/" target="_blank" rel="noopener">Canale 8 — "Da Zara a Dolce&amp;Gabbana, il boom del brand Napoli" (June 1, 2026)</a> &middot; <a href="https://www.italypost.it/news/cultura/6898/la-funicolare-del-fast-fashion-zara-passa-da-napoli-per-provare-a-scalare-lolimpo-del-lusso.html" target="_blank" rel="noopener">ItalyPost — "La funicolare del fast fashion"</a> &middot; <a href="https://wwd.com/fashion-news/fashion-scoops/max-mara-resort-2026-show-caserta-royal-palace-unesco-site-1236936281/" target="_blank" rel="noopener">WWD — Max Mara Resort 2026</a> &middot; <a href="https://www.glossy.co/fashion/luxury/luxury-briefing-zara-bets-on-galliano-to-up-its-pricing-power/" target="_blank" rel="noopener">Glossy — Zara bets on Galliano (March 2026)</a></p>
+  <p class="article-footnote" data-lang="it">Fonti: <a href="https://www.ilmattino.it/schede/video_zara_napoli_pubblicita_instagram_funiculi_funicula-9562231.html" target="_blank" rel="noopener">Il Mattino</a> &middot; <a href="https://www.engage.it/campagne/napoli-protagonista-del-nuovo-spot-zara-an-italian-summer-mood-new-collection.aspx" target="_blank" rel="noopener">Engage.it — "Napoli protagonista del nuovo spot Zara" (3 giugno 2026)</a> &middot; <a href="https://www.canaleotto.it/da-zara-a-dolcegabbana-il-boom-del-brand-napoli-ma-non-riduciamola-a-una-cartolina/" target="_blank" rel="noopener">Canale 8 — "Da Zara a Dolce&amp;Gabbana, il boom del brand Napoli" (1° giugno 2026)</a> &middot; <a href="https://www.italypost.it/news/cultura/6898/la-funicolare-del-fast-fashion-zara-passa-da-napoli-per-provare-a-scalare-lolimpo-del-lusso.html" target="_blank" rel="noopener">ItalyPost — "La funicolare del fast fashion"</a> &middot; <a href="https://wwd.com/fashion-news/fashion-scoops/max-mara-resort-2026-show-caserta-royal-palace-unesco-site-1236936281/" target="_blank" rel="noopener">WWD — Max Mara Resort 2026</a> &middot; <a href="https://www.glossy.co/fashion/luxury/luxury-briefing-zara-bets-on-galliano-to-up-its-pricing-power/" target="_blank" rel="noopener">Glossy — Zara bets on Galliano (marzo 2026)</a></p>
+
+</div>
+
+<div class="back-strip">
+  <a class="back-link" href="/#perspectives" data-en="← Back to Perspectives" data-it="← Torna a Prospettive">← Back to Perspectives</a>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a class="footer-link" href="mailto:ciao@thecostieracollective.com">ciao@thecostieracollective.com</a>
+    <div class="footer-dot"></div>
+    <a class="footer-link" href="https://instagram.com/thecostieracollective" target="_blank" rel="noopener">@thecostieracollective</a>
+  </div>
+  <div class="footer-rule"></div>
+  <p class="footer-wordmark" data-en="The Costiera Collective — Southern Italy" data-it="The Costiera Collective — Sud Italia">The Costiera Collective — Southern Italy</p>
+</footer>
+
+<script>
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-toggle button[onclick="setLang('${lang}')"]`).classList.add('active');
+  // Simple bilingual elements
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (!text) return;
+    el.innerHTML = text;
+  });
+  // Language-specific elements (paragraphs with HTML links)
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+  });
+  document.documentElement.lang = lang;
+}
+
+// Init: hide all IT elements on load
+document.querySelectorAll('[data-lang="it"]').forEach(el => el.style.display = 'none');
+</script>
+
+</body>
+</html>
