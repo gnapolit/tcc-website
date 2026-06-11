@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Costiera Collective</title>
+  <meta name="description" content="Talent management and brand partnerships rooted in Southern Italy.">
+  <meta name="robots" content="noindex">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #1B3057;
+      --copper: #C4785A;
+      --cream:  #E8DCC8;
+      --beige:  #B0A898;
+      --light:  #F5F3EF;
+      --white:  #FFFFFF;
+    }
+
+    body {
+      background: var(--navy);
+      font-family: 'Calibri', 'Arial', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 64px;
+    }
+
+    /* ── Wordmark ── */
+    .wordmark {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .wordmark-the {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: var(--beige);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .wordmark-main {
+      display: block;
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 22px;
+      color: var(--white);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .wordmark-rule {
+      width: 36px;
+      height: 1.5px;
+      background: var(--copper);
+      margin: 10px auto 0;
+    }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-size: 12px;
+      color: var(--beige);
+      letter-spacing: 1px;
+      text-align: center;
+      margin-top: 14px;
+      margin-bottom: 44px;
+      line-height: 1.6;
+    }
+
+    /* ── Links ── */
+    .links {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-item {
+      display: block;
+      text-decoration: none;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-left: 3px solid var(--copper);
+      padding: 18px 22px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .link-item:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    .link-label {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 5px;
+    }
+    .link-title {
+      display: block;
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 17px;
+      color: var(--white);
+      letter-spacing: 0.3px;
+      line-height: 1.35;
+    }
+    .link-sub {
+      display: block;
+      font-size: 12px;
+      color: var(--beige);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── Divider ── */
+    .links-divider {
+      width: 100%;
+      max-width: 420px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 8px 0;
+    }
+
+    /* ── Social ── */
+    .social {
+      margin-top: 36px;
+      text-align: center;
+    }
+    .social a {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--beige);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social a:hover { color: var(--white); }
+
+    /* ── Footer mark ── */
+    .footer-mark {
+      margin-top: 48px;
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: 10px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wordmark">
+    <span class="wordmark-the">The</span>
+    <span class="wordmark-main">Costiera<br>Collective</span>
+    <div class="wordmark-rule"></div>
+  </div>
+
+  <p class="tagline">Talent management &amp; brand partnerships<br>rooted in Southern Italy.</p>
+
+  <div class="links">
+
+    <!-- CCC Community -->
+    <a class="link-item" href="https://www.facebook.com/groups/costieracreatorcollective" target="_blank" rel="noopener">
+      <span class="link-label">Creator Community</span>
+      <span class="link-title">Join the Costiera Creator Collective</span>
+      <span class="link-sub">Free to join for creators rooted in Southern Italy.</span>
+    </a>
+
+    <div class="links-divider"></div>
+
+    <!-- Article 1 -->
+    <a class="link-item" href="https://www.thecostieracollective.com/perspectives/naples-not-a-postcard">
+      <span class="link-label">Latest Read</span>
+      <span class="link-title">Naples Is Not a Postcard. Neither Is Your Campaign.</span>
+      <span class="link-sub">On the Zara Naples moment, the cartolina debate, and what comes next for brands.</span>
+    </a>
+
+    <!-- Article 2 -->
+    <a class="link-item" href="https://www.thecostieracollective.com/perspectives/hook-architecture">
+      <span class="link-label">Research</span>
+      <span class="link-title">Hook Architecture on the Amalfi Coast: What the Data Actually Shows</span>
+      <span class="link-sub">We analyzed 209 posts. What stops the scroll here is not what the algorithm suggests.</span>
+    </a>
+
+    <div class="links-divider"></div>
+
+    <!-- Contact -->
+    <a class="link-item" href="mailto:ciao@thecostieracollective.com">
+      <span class="link-label">Get in Touch</span>
+      <span class="link-title">ciao@thecostieracollective.com</span>
+      <span class="link-sub">For creators, brands, and press.</span>
+    </a>
+
+  </div>
+
+  <div class="social">
+    <a href="https://instagram.com/thecostieracollective" target="_blank" rel="noopener">@thecostieracollective</a>
+  </div>
+
+  <p class="footer-mark">Southern Italy</p>
+
+</body>
+</html>
