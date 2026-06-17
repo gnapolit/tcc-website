@@ -13,13 +13,25 @@
   <link rel="alternate" hreflang="it" href="https://www.thecostieracollective.com" />
   <link rel="alternate" hreflang="x-default" href="https://www.thecostieracollective.com" />
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-17JGXY6B27"></script>
+  <!-- Google Analytics 4 — consent-gated (GDPR) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-17JGXY6B27');
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+    function loadGA() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-17JGXY6B27';
+      document.head.appendChild(s);
+      s.onload = function() {
+        gtag('js', new Date());
+        gtag('config', 'G-17JGXY6B27');
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      };
+    }
+    if (localStorage.getItem('tcc_cookie_consent') === 'accepted') { loadGA(); }
   </script>
 
   <!-- Open Graph (social sharing) -->
@@ -857,6 +869,64 @@
     }
   </style>
 
+  <!-- Cookie Banner Styles -->
+  <style>
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: #1B3057; color: #F5F3EF;
+      padding: 20px 32px; box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+      font-family: Calibri, Arial, sans-serif; font-size: 14px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
+    }
+    #cookie-banner p { margin: 0; flex: 1 1 300px; line-height: 1.5; color: #E8DCC8; }
+    #cookie-banner p a { color: #C4785A; text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cookie-btn {
+      padding: 9px 18px; border: none; cursor: pointer; border-radius: 2px;
+      font-family: Calibri, Arial, sans-serif; font-size: 13px; font-weight: 600;
+      white-space: nowrap; transition: opacity 0.15s;
+    }
+    .cookie-btn:hover { opacity: 0.85; }
+    .cookie-btn-accept { background: #C4785A; color: #fff; }
+    .cookie-btn-reject { background: transparent; color: #E8DCC8; border: 1px solid #B0A898; }
+    .cookie-btn-customize { background: transparent; color: #E8DCC8; border: 1px solid #B0A898; }
+
+    #cookie-customize-panel {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000;
+      background: #1B3057; color: #F5F3EF;
+      padding: 28px 32px; box-shadow: 0 -4px 24px rgba(0,0,0,0.22);
+      font-family: Calibri, Arial, sans-serif; font-size: 14px;
+      max-width: 640px; margin: 0 auto; border-top: 2px solid #C4785A;
+    }
+    .cookie-toggle-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0; border-bottom: 1px solid rgba(176,168,152,0.2);
+    }
+    .cookie-toggle-label { color: #E8DCC8; font-size: 14px; }
+    .cookie-toggle-label small { display: block; color: #B0A898; font-size: 12px; margin-top: 2px; }
+    .cookie-toggle {
+      position: relative; width: 42px; height: 24px; flex-shrink: 0;
+    }
+    .cookie-toggle input { opacity: 0; width: 0; height: 0; }
+    .cookie-toggle-slider {
+      position: absolute; cursor: pointer; inset: 0;
+      background: #B0A898; border-radius: 24px; transition: 0.2s;
+    }
+    .cookie-toggle input:checked + .cookie-toggle-slider { background: #C4785A; }
+    .cookie-toggle-slider:before {
+      content: ''; position: absolute; height: 18px; width: 18px;
+      left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.2s;
+    }
+    .cookie-toggle input:checked + .cookie-toggle-slider:before { transform: translateX(18px); }
+    .cookie-customize-actions { display: flex; gap: 10px; margin-top: 20px; }
+    @media (max-width: 600px) {
+      #cookie-banner { padding: 16px 20px; }
+      .cookie-btns { width: 100%; }
+      .cookie-btn { flex: 1; text-align: center; }
+      #cookie-customize-panel { padding: 20px 20px; }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -1399,6 +1469,8 @@
     <a class="footer-link" href="mailto:ciao@thecostieracollective.com">ciao@thecostieracollective.com</a>
     <div class="footer-dot"></div>
     <a class="footer-link" href="https://instagram.com/thecostieracollective" target="_blank" rel="noopener">@thecostieracollective</a>
+    <div class="footer-dot"></div>
+    <a class="footer-link" href="/cookie-policy.html" data-en="Cookie Policy" data-it="Cookie Policy">Cookie Policy</a>
   </div>
   <div class="footer-rule"></div>
   <p class="footer-wordmark" data-en="The Costiera Collective — Southern Italy" data-it="The Costiera Collective — Sud Italia">The Costiera Collective — Southern Italy</p>
@@ -1473,6 +1545,80 @@ function openArticle(id) {
 function closeArticle(id) {
   document.getElementById(id).classList.remove('open');
   document.body.style.overflow = '';
+}
+</script>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="display:none;">
+  <p data-en='This site uses cookies. We use 2 Google Analytics cookies (first-party) for site analytics, and 1 Instagram cookie (third-party) for embedded content. Read our <a href="/cookie-policy.html">Cookie Policy</a>. You can change your preferences at any time.' data-it='Questo sito utilizza i cookie. Usiamo 2 cookie di Google Analytics (first party) per analisi del sito e 1 cookie di Instagram (terze parti) per contenuti integrati. Leggi la nostra <a href="/cookie-policy.html">Cookie Policy</a>. Puoi modificare le tue preferenze in qualsiasi momento.'>This site uses cookies. We use 2 Google Analytics cookies (first-party) for site analytics, and 1 Instagram cookie (third-party) for embedded content. Read our <a href="/cookie-policy.html">Cookie Policy</a>. You can change your preferences at any time.</p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-btn-accept" onclick="cookieAcceptAll()" data-en="Accept all" data-it="Accetta tutti">Accept all</button>
+    <button class="cookie-btn cookie-btn-reject" onclick="cookieRejectNonEssential()" data-en="Reject non-essential" data-it="Rifiuta non necessari">Reject non-essential</button>
+    <button class="cookie-btn cookie-btn-customize" onclick="cookieShowCustomize()" data-en="Customize" data-it="Personalizza">Customize</button>
+  </div>
+</div>
+
+<!-- COOKIE CUSTOMIZE PANEL -->
+<div id="cookie-customize-panel" style="display:none;">
+  <div class="cookie-toggle-row">
+    <div class="cookie-toggle-label">
+      <span data-en="Essential cookies" data-it="Cookie essenziali">Essential cookies</span>
+      <small data-en="Required for the site to function. Cannot be disabled." data-it="Necessari per il funzionamento del sito. Non disattivabili.">Required for the site to function. Cannot be disabled.</small>
+    </div>
+    <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="cookie-toggle-label">
+      <span data-en="Google Analytics" data-it="Google Analytics">Google Analytics</span>
+      <small data-en="2 first-party cookies for site performance analysis." data-it="2 cookie first-party per l'analisi delle prestazioni del sito.">2 first-party cookies for site performance analysis.</small>
+    </div>
+    <label class="cookie-toggle"><input type="checkbox" id="toggle-ga"><span class="cookie-toggle-slider"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="cookie-toggle-label">
+      <span data-en="Instagram (third-party)" data-it="Instagram (terze parti)">Instagram (third-party)</span>
+      <small data-en="1 cookie for embedded Instagram content. Managed by Meta." data-it="1 cookie per contenuti Instagram integrati. Gestito da Meta.">1 cookie for embedded Instagram content. Managed by Meta.</small>
+    </div>
+    <label class="cookie-toggle"><input type="checkbox" id="toggle-ig"><span class="cookie-toggle-slider"></span></label>
+  </div>
+  <div class="cookie-customize-actions">
+    <button class="cookie-btn cookie-btn-accept" onclick="cookieSaveCustom()" data-en="Save preferences" data-it="Salva preferenze">Save preferences</button>
+    <button class="cookie-btn cookie-btn-reject" onclick="cookieRejectNonEssential()" data-en="Reject all non-essential" data-it="Rifiuta tutti i non necessari">Reject all non-essential</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var consent = localStorage.getItem('tcc_cookie_consent');
+  if (!consent) {
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+})();
+
+function cookieHideAll() {
+  document.getElementById('cookie-banner').style.display = 'none';
+  document.getElementById('cookie-customize-panel').style.display = 'none';
+}
+function cookieAcceptAll() {
+  localStorage.setItem('tcc_cookie_consent', 'accepted');
+  cookieHideAll();
+  loadGA();
+}
+function cookieRejectNonEssential() {
+  localStorage.setItem('tcc_cookie_consent', 'rejected');
+  cookieHideAll();
+}
+function cookieShowCustomize() {
+  document.getElementById('cookie-banner').style.display = 'none';
+  document.getElementById('cookie-customize-panel').style.display = 'block';
+  // Apply current lang to the new panel elements
+  if (typeof currentLang !== 'undefined') setLang(currentLang);
+}
+function cookieSaveCustom() {
+  var gaOn = document.getElementById('toggle-ga').checked;
+  localStorage.setItem('tcc_cookie_consent', gaOn ? 'accepted' : 'rejected');
+  cookieHideAll();
+  if (gaOn) loadGA();
 }
 </script>
 

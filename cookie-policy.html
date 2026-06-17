@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — The Costiera Collective</title>
+  <meta name="description" content="Cookie Policy for thecostieracollective.com" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://www.thecostieracollective.com/cookie-policy.html" />
+  <style>
+    :root {
+      --navy: #1B3057;
+      --copper: #C4785A;
+      --cream: #E8DCC8;
+      --beige: #B0A898;
+      --light: #F5F3EF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Calibri, Arial, sans-serif;
+      background: var(--light);
+      color: #2a2a2a;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    header {
+      background: var(--navy);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .header-wordmark {
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      font-size: 17px;
+      font-weight: normal;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .header-wordmark span { color: var(--copper); }
+    .lang-toggle {
+      display: flex;
+      gap: 2px;
+    }
+    .lang-toggle button {
+      background: transparent;
+      border: 1px solid var(--beige);
+      color: var(--beige);
+      padding: 5px 12px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      font-family: Calibri, Arial, sans-serif;
+      transition: all 0.15s;
+    }
+    .lang-toggle button.active,
+    .lang-toggle button:hover {
+      background: var(--copper);
+      border-color: var(--copper);
+      color: #fff;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 52px 32px 80px;
+    }
+    .page-title {
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      font-size: 28px;
+      font-weight: normal;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+    .page-subtitle {
+      color: var(--beige);
+      font-size: 13px;
+      margin-bottom: 40px;
+      letter-spacing: 0.03em;
+    }
+    .rule { width: 40px; height: 2px; background: var(--copper); margin: 12px 0 36px; }
+    h2 {
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      font-size: 17px;
+      font-weight: normal;
+      color: var(--navy);
+      margin: 36px 0 10px;
+      letter-spacing: 0.02em;
+    }
+    p { margin-bottom: 14px; color: #333; }
+    a { color: var(--copper); text-decoration: underline; }
+    a:hover { opacity: 0.8; }
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 13px;
+    }
+    .cookie-table th {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-family: Calibri, Arial, sans-serif;
+      letter-spacing: 0.03em;
+    }
+    .cookie-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e0dbd3;
+      vertical-align: top;
+      color: #333;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .cookie-table tr:nth-child(even) td { background: #f0ece5; }
+    .tag {
+      display: inline-block;
+      background: var(--cream);
+      color: var(--navy);
+      border-radius: 2px;
+      padding: 2px 8px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    footer {
+      background: var(--navy);
+      padding: 32px;
+      text-align: center;
+    }
+    .footer-link {
+      color: var(--beige);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .footer-link:hover { color: #fff; }
+    .footer-dot { display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: var(--copper); margin: 0 12px; vertical-align: middle; }
+    .footer-wordmark {
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      font-size: 13px;
+      color: var(--beige);
+      margin-top: 16px;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 36px 20px 60px; }
+      .cookie-table { font-size: 12px; }
+      .cookie-table th, .cookie-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="header-wordmark" href="/">The Costiera <span>Collective</span></a>
+  <div class="lang-toggle">
+    <button onclick="setLang('en')" class="active" id="btn-en">EN</button>
+    <button onclick="setLang('it')" id="btn-it">IT</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h1 class="page-title" data-en="Cookie Policy" data-it="Cookie Policy">Cookie Policy</h1>
+  <p class="page-subtitle" data-en="Last updated: June 16, 2026 — thecostieracollective.com" data-it="Ultimo aggiornamento: 16 giugno 2026 — thecostieracollective.com">Last updated: June 16, 2026 — thecostieracollective.com</p>
+  <div class="rule"></div>
+
+  <h2 data-en="1. Introduction" data-it="1. Introduzione">1. Introduction</h2>
+  <p data-en="Welcome to www.thecostieracollective.com. This Cookie Policy explains how we use cookies and similar technologies when you visit our website, including our blog on agency activities for creators, influencers, and professionals in the industry." data-it="Benvenuto sul sito www.thecostieracollective.com. Questa Cookie Policy spiega come utilizziamo i cookie e le tecnologie simili quando visiti il nostro sito web, incluso il nostro blog sulle attività dell'agenzia rivolto a creators, influencer e professionisti del settore.">Welcome to www.thecostieracollective.com. This Cookie Policy explains how we use cookies and similar technologies when you visit our website, including our blog on agency activities for creators, influencers, and professionals in the industry.</p>
+
+  <h2 data-en="2. What are cookies?" data-it="2. Cosa sono i cookie?">2. What are cookies?</h2>
+  <p data-en="Cookies are small text files saved on your device (computer, smartphone, or tablet) when you visit a website. They help improve your browsing experience, analyze site performance, and deliver more relevant content." data-it="I cookie sono piccoli file di testo che vengono salvati sul tuo dispositivo (computer, smartphone o tablet) quando visiti un sito web. Ti aiutano a migliorare l'esperienza di navigazione, analizzare le prestazioni del sito e fornire contenuti più pertinenti.">Cookies are small text files saved on your device (computer, smartphone, or tablet) when you visit a website. They help improve your browsing experience, analyze site performance, and deliver more relevant content.</p>
+
+  <h2 data-en="3. Cookies we use" data-it="3. Tipi di cookie utilizzati">3. Cookies we use</h2>
+
+  <p><strong data-en="First-party cookies — Google Analytics" data-it="Cookie di first party — Google Analytics">First-party cookies — Google Analytics</strong></p>
+  <p data-en="We use Google Analytics cookies to analyze visits, understand how users interact with our content, and improve site performance. These cookies do not collect personally identifiable information and are processed in accordance with Google's Privacy Policy." data-it="Utilizziamo cookie di Google Analytics per analizzare le visite, comprendere come gli utenti interagiscono con i nostri contenuti e migliorare le prestazioni del sito. Questi cookie non raccolgono informazioni personali identificabili e i dati sono trattati in accordo con la Privacy Policy di Google.">We use Google Analytics cookies to analyze visits, understand how users interact with our content, and improve site performance. These cookies do not collect personally identifiable information and are processed in accordance with Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+
+  <table class="cookie-table">
+    <thead>
+      <tr>
+        <th data-en="Cookie" data-it="Cookie">Cookie</th>
+        <th data-en="Purpose" data-it="Finalità">Purpose</th>
+        <th data-en="Type" data-it="Tipo">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>_ga</code></td>
+        <td data-en="Identifies unique users" data-it="Identifica l'utente unico">Identifies unique users</td>
+        <td><span class="tag">First-party</span></td>
+      </tr>
+      <tr>
+        <td><code>_gid</code></td>
+        <td data-en="Manages rate limiting" data-it="Gestisce le richieste di rate limiting">Manages rate limiting</td>
+        <td><span class="tag">First-party</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong data-en="Third-party cookie — Instagram" data-it="Cookie di terze parti — Instagram">Third-party cookie — Instagram</strong></p>
+  <p data-en="We use 1 Instagram cookie when embedded content (e.g. posts, feed) from our Instagram profile is displayed on the site. This cookie is managed by Instagram (Meta Platforms Ireland Limited) and is subject to Instagram's Privacy Policy." data-it="Utilizziamo 1 cookie di Instagram quando vengono visualizzati contenuti integrati (es. post, feed) dal nostro profilo Instagram sul sito. Questo cookie è gestito da Instagram (Meta Platforms Ireland Limited) e soggetto alla Privacy Policy di Instagram.">We use 1 Instagram cookie when embedded content (e.g. posts, feed) from our Instagram profile is displayed on the site. This cookie is managed by Instagram (Meta Platforms Ireland Limited) and is subject to <a href="https://help.instagram.com/519522125107875" target="_blank" rel="noopener">Instagram's Privacy Policy</a>.</p>
+
+  <h2 data-en="4. How we manage cookies" data-it="4. Come gestiamo i cookie">4. How we manage cookies</h2>
+  <p data-en="Essential cookies: some cookies are necessary for the site to function and cannot be disabled." data-it="Cookie necessari: alcuni cookie sono essenziali per il funzionamento del sito e non possono essere disattivati.">Essential cookies: some cookies are necessary for the site to function and cannot be disabled.</p>
+  <p data-en="Analytics and preference cookies: Google Analytics and Instagram cookies require your consent before activation. You can manage your preferences via the consent banner that appears on your first visit, or by adjusting your browser settings at any time." data-it="Cookie di analisi e preferenze: i cookie di Google Analytics e Instagram richiedono il tuo consenso prima dell'attivazione. Puoi gestire le tue preferenze tramite il banner di consenso che appare alla prima visita del sito o modificando le impostazioni del tuo browser in qualsiasi momento.">Analytics and preference cookies: Google Analytics and Instagram cookies require your consent before activation. You can manage your preferences via the consent banner that appears on your first visit, or by adjusting your browser settings at any time.</p>
+
+  <h2 data-en="5. Your rights" data-it="5. Diritti dell'utente">5. Your rights</h2>
+  <p data-en="In accordance with EU Regulation 2016/679 (GDPR), you have the right to: access the data collected; request correction or deletion of data; restrict or object to processing; withdraw consent at any time; data portability; lodge a complaint with the competent supervisory authority." data-it="In conformità con il Regolamento UE 2016/679 (GDPR), hai diritto a: accedere ai dati raccolti; richiedere la correzione o l'eliminazione dei dati; limitare o opporsi al trattamento dei dati; revocare il consenso ai cookie in qualsiasi momento; portabilità dei dati; proposizione di reclamo all'autorità di controllo competente.">In accordance with EU Regulation 2016/679 (GDPR), you have the right to: access the data collected; request correction or deletion of data; restrict or object to processing; withdraw consent at any time; data portability; lodge a complaint with the competent supervisory authority.</p>
+  <p data-en="To exercise these rights, contact us at: ciao@thecostieracollective.com" data-it="Per esercitare questi diritti, contattaci all'indirizzo: ciao@thecostieracollective.com">To exercise these rights, contact us at: <a href="mailto:ciao@thecostieracollective.com">ciao@thecostieracollective.com</a></p>
+
+  <h2 data-en="6. Updates to this Cookie Policy" data-it="6. Aggiornamenti alla Cookie Policy">6. Updates to this Cookie Policy</h2>
+  <p data-en="We may update this Cookie Policy periodically. We recommend checking this page regularly for any changes." data-it="Potremmo aggiornare questa Cookie Policy periodicamente. Ti consigliamo di verificare regolarmente questa pagina per eventuali cambiamenti.">We may update this Cookie Policy periodically. We recommend checking this page regularly for any changes.</p>
+
+  <h2 data-en="7. Contact" data-it="7. Contatti">7. Contact</h2>
+  <p data-en="The Costiera Collective SRL — Via Casaraia, 57, 80049 Somma Vesuviana (NA), Italy" data-it="The Costiera Collective SRL — Via Casaraia, 57, 80049 Somma Vesuviana (NA), Italia">The Costiera Collective SRL — Via Casaraia, 57, 80049 Somma Vesuviana (NA), Italy</p>
+  <p>Email: <a href="mailto:ciao@thecostieracollective.com">ciao@thecostieracollective.com</a></p>
+  <p>PEC: <a href="mailto:thecostieracollective@pec.it">thecostieracollective@pec.it</a></p>
+
+</div>
+
+<footer>
+  <div>
+    <a class="footer-link" href="/">thecostieracollective.com</a>
+    <span class="footer-dot"></span>
+    <a class="footer-link" href="mailto:ciao@thecostieracollective.com">ciao@thecostieracollective.com</a>
+  </div>
+  <p class="footer-wordmark" data-en="The Costiera Collective — Southern Italy" data-it="The Costiera Collective — Sud Italia">The Costiera Collective — Southern Italy</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    var text = el.getAttribute('data-' + lang);
+    if (!text) return;
+    if (text.includes('<')) { el.innerHTML = text; } else { el.textContent = text; }
+  });
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.documentElement.lang = lang;
+}
+</script>
+
+</body>
+</html>
